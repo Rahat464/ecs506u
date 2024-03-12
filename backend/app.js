@@ -1,14 +1,23 @@
+// Path: backend/package.json
+
+// Importing express module
 const express = require('express');
 const app = express();
-const port = 4000;
 
+// Use environment variables
+require('dotenv').config();
+const ENV = process.env;
 
-// simple render for localhost:4000
+// running the express app --> run with "npm start"
+app.listen(ENV.PORT, () => {
+    console.log(`listening on port ${ENV.PORT}`)
+});
+
+// Defining the routes
+
+// Home Page
 app.get('/', (req, res) => {
     res.send('Welcome to FDM Employee Portal!');
 });
 
-// running the express app --> run with "npm start"
-app.listen(port, () => {
-    console.log(`listening on port ${port}`)
-});
+// TODO: Split the routes into separate files using express Router
