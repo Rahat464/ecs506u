@@ -1,5 +1,3 @@
-// Path: backend/package.json
-
 // Importing express module
 const express = require('express');
 const app = express();
@@ -13,11 +11,15 @@ app.listen(ENV.PORT, () => {
     console.log(`listening on port ${ENV.PORT}`)
 });
 
-// Defining the routes
+// Import Routes
+const login = require('./routes/auth/login');
+const register = require('./routes/auth/register');
 
 // Home Page
 app.get('/', (req, res) => {
     res.send('Welcome to FDM Employee Portal!');
 });
 
-// TODO: Split the routes into separate files using express Router
+// Routes
+app.use('api/login', login);
+app.use('api/register', register);
