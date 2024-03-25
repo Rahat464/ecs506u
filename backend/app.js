@@ -1,25 +1,42 @@
 // Importing express module
 const express = require('express');
 const app = express();
+const session = require('express-session');
 
 // Use environment variables
 require('dotenv').config();
 const ENV = process.env;
+
+// Passport
+const passport = require('passport');
+const localStrategy = require('passport-local').Strategy;
+require('./routes/auth/passportConfig');
+
+// Use session middleware to store user data
+app.use(session({
+    secret: ENV.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+
+// Middleware for JSON and form data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session(undefined));
 
 // running the express app --> run with "npm start"
 app.listen(ENV.PORT, () => {
     console.log(`listening on port ${ENV.PORT}`)
 });
 
-// Import Routes
-const login = require('./routes/auth/login');
-const register = require('./routes/auth/register');
-
 // Home Page
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     res.send('Welcome to FDM Employee Portal!');
 });
 
 // Routes
-app.use('api/login', login);
-app.use('api/register', register);
+app.use('/api/login', require('./routes/auth/login'));
+app.use('/api/register', require('./routes/auth/register'));
