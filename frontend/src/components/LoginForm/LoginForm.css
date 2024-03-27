@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: #1E1E1E;
+    
+  }
+
+  .wrapper{
+    background-color: #D9D4E6;
+    width: 480px;
+    height: 500px;
+    padding: 30px 40px;
+  }
