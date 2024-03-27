@@ -8,9 +8,11 @@ import FDMLogo from '../../assets/FDMLogo.png'
 
 export const LoginForm = () => {
   return (
+    
     <div className='wrapper'>
+      <div className='shadow'> </div>
       <form action="">
-        <div className="Logo">
+      <div className="Logo">
             <img src={FDMLogo} alt="fdm logo" />
         </div>
         <h1>Login</h1>
@@ -20,7 +22,7 @@ export const LoginForm = () => {
             <FaUser className='icon'/>
         </div>
         <div className='input-box'>
-            <input type="text" placeholder='Password' required />
+            <input type="password" placeholder='Password' required />
             <FaLock className='icon' />
         </div>
 
