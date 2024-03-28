@@ -37,8 +37,18 @@ app.get('/', async (req, res) => {
     res.send('Welcome to FDM Employee Portal!');
 });
 
-// Routes
+// Routes //
+
+// Auth
 app.use('/api/login', require('./routes/auth/login'));
 app.use('/api/register', require('./routes/auth/register'));
+app.use('/api/logout', require('./routes/auth/logout'));
+
+// Admin
 app.use('/api/admin', require('./routes/admin/postPermissions'));
+
+// Blog
 app.use('/api/posts', require('./routes/blog/post'));
+
+// User Profile
+app.use('/api/userProfile', require('./routes/userProfile/userProfile'));

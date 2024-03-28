@@ -3,17 +3,25 @@ const LocalStrategy = require('passport-local').Strategy;
 const db = new (require('../../db'))(); // Instantiate a database connection
 const crypto = require('crypto');
 
+// Serialize will store the user object in the session
 passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    done(null,
+        {
+            id: user.id,
+            name: user.firstname
+        });
 });
 
+// Everytime a request is made, deserialize will retrieve the user object from the session
 passport.deserializeUser(function(id, done) {
-  // Here you would look up the user in your database
-  // For now, we'll just return a dummy user
-  done(null, {id: id, name: "Dummy"});
+  // Can be accessed in req.user
+  done(null,
+      {
+          id: id,
+          name: name
+      });
 });
 
-// Register strategy
 // Register strategy
 passport.use("register", new LocalStrategy(
     { // TODO change name of fields once front end is updated
