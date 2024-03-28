@@ -9,7 +9,6 @@ const ENV = process.env;
 
 // Passport
 const passport = require('passport');
-const localStrategy = require('passport-local').Strategy;
 require('./routes/auth/passportConfig');
 
 // Use session middleware to store user data
