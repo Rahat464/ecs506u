@@ -61,7 +61,6 @@ passport.use("login", new LocalStrategy(
         const query = "SELECT * FROM employees WHERE email = $1 AND password = $2";
 
         const res = await db.query(query, values);
-        console.log(res.rows, values);
 
         // If the query fails, return an error message
         if (res === false) return done(null, false, {message: "Database error"});
