@@ -13,12 +13,12 @@ passport.serializeUser(function(user, done) {
 });
 
 // Everytime a request is made, deserialize will retrieve the user object from the session
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(function(user, done) {
   // Can be accessed in req.user
   done(null,
       {
-          id: id,
-          name: name
+          id: user.id,
+          name: user.name
       });
 });
 
