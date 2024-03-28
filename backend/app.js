@@ -41,3 +41,4 @@ app.get('/', async (req, res) => {
 app.use('/api/login', require('./routes/auth/login'));
 app.use('/api/register', require('./routes/auth/register'));
 app.use('/api/admin', require('./routes/admin/postPermissions'));
+app.use('/api/posts', require('./routes/blog/post'));
