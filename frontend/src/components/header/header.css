@@ -24,3 +24,32 @@
     list-style: none;
     padding-right: 40px;
 }
+
+.Header .link {
+    color: white;
+    text-decoration: none;
+}
+.Header .dropdown {
+    cursor: default;
+}
+
+.Header .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: -55px;
+    padding-top: 20px;
+    min-height: 115px;
+}
+
+.Header .dropdown-content li {
+    padding: 12px 16px;
+}
+
+.Header .dropdown:hover .dropdown-content {
+    display: block;
+}
+  

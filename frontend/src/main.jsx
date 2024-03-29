@@ -6,6 +6,14 @@ import App from './App.jsx'
 import './index.css'
 import SignUp from './components/SignUp/SignUp.jsx'
 import LoginForm from '../src/components/LoginForm/LoginForm.jsx'
+import Home from './components/Home/Home.jsx'
+import Forum from './components/Forum/Forum.jsx'
+import Account from './components/Account/Account.jsx'
+import Contact from './components/Contact/Contact.jsx'
+import Documents from './components/Documents/Documents.jsx'
+import Programs from './components/Programs/Programs.jsx'
+import CreatePost from './components/Forum/CreatePost.jsx'
+import EditAccount from './components/Account/EditAccount.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,8 +29,38 @@ const router = createBrowserRouter([
     path: '/LoginForm',
     element: <LoginForm />,
   },
-  
-
+  {
+    path: '/Home',
+    element: <Home />,
+  },
+  {
+    path: '/Forum',
+    element: <Forum />,
+  },
+  {
+    path: '/Account',
+    element: <Account />,
+  },
+  {
+    path: '/Contact',
+    element: <Contact />,
+  },
+  {
+    path: '/Documents',
+    element: <Documents />,
+  },
+  {
+    path: '/Programs',
+    element: <Programs />,
+  },
+  {
+    path: '/CreatePost',
+    element: <CreatePost />,
+  },
+  {
+    path: '/EditAccount',
+    element: <EditAccount />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
