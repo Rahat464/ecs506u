@@ -31,6 +31,13 @@ app.listen(ENV.PORT, () => {
     console.log(`listening on port ${ENV.PORT}`)
 });
 
+// CORS middleware to allow for requests from the frontend
+const cors = require('cors');
+app.use(cors({
+    origin: ENV.FRONTEND_URL + ':' + ENV.FRONTEND_PORT,
+    credentials: true
+}));
+
 // Home Page
 app.get('/', async (req, res) => {
     res.send('Welcome to FDM Employee Portal!');
