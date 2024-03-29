@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 export const SignUp = () => {
   return (
     
-    <div className='wrapper'>
+    <div className='SignUp'>
       <div className='shadow'> </div>
       <form action="">
       <div className="Logo">
