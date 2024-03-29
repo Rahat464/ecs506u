@@ -10,7 +10,7 @@ export const Header = () => {
         <div className='Header'>
             <ul>
                 <li>
-                    <img src={FDMLogo} />
+                    <Link to = '/LandingPage'><img src={FDMLogo} /></Link>
                 </li>
                 <li><Link to='/Home' className='link'>Home</Link></li>
                 <li className='dropdown'>

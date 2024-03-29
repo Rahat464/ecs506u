@@ -14,6 +14,7 @@ import Documents from './components/Documents/Documents.jsx'
 import Programs from './components/Programs/Programs.jsx'
 import CreatePost from './components/Forum/CreatePost.jsx'
 import EditAccount from './components/Account/EditAccount.jsx'
+import LandingPage from './components/LandingPage/LandingPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
     path: '/EditAccount',
     element: <EditAccount />,
   },
+  {
+    path: '/LandingPage',
+    element: <LandingPage />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
