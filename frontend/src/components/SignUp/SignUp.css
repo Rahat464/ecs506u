@@ -67,7 +67,8 @@
     display: flex;
     top:50px;
     position: relative;
-    margin-top: 50px;
+    left: 8px;
+    margin-top: 26px;
   }
 
   .SignUp .Logo img{
@@ -178,7 +179,6 @@
     color: white;
     font-weight: 700;
     padding: 15px;
-
   }
 
   .SignUp .login-link a{

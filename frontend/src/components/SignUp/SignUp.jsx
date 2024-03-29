@@ -5,11 +5,13 @@ import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import FDMLogo from '../../assets/FDMLogo.png'
 import { Link } from 'react-router-dom';
+import Header from '../header/header';
 
 
 export const SignUp = () => {
   return (
-    
+    <>
+    <Header />
     <div className='SignUp'>
       <div className='shadow'> </div>
       <form action="">
@@ -49,6 +51,7 @@ export const SignUp = () => {
     
       </form>
     </div>
+    </>
   );
 };
 
