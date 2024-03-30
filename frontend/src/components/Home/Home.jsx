@@ -10,7 +10,12 @@ export const Home = () => {
     <>
         <Header />
         <div className='Home'>
-            <h1>this is the dashboard</h1>
+            <div className='title'>
+                <h1>Welcome to your FDM Employee Portal, insertnamehere</h1>
+            </div>
+            <div className='navigation'>
+                
+            </div>
         </div>
     </>
   );

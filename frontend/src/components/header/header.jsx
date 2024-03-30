@@ -15,14 +15,14 @@ export const Header = () => {
                 <li><Link to='/Home' className='link'>Home</Link></li>
                 <li className='dropdown'>
                     Forum
-                    <ul className='dropdown-content'>
+                    <ul className='dropdown-forum'>
                         <li><Link to='/Forum' className='link'>View Posts</Link></li>
                         <li><Link to='/CreatePost' className='link'>Create a Post</Link></li>
                     </ul>
                 </li>
                 <li className='dropdown'>
                     Account
-                    <ul className='dropdown-content'>
+                    <ul className='dropdown-account'>
                         <li><Link to='/Account' className='link'>Account</Link></li>
                         <li><Link to='/EditAccount' className='link'>Edit Account Info</Link></li>
                     </ul>

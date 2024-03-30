@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+.Home {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 20px;
+    font-family: "Roboto Slab";
+}
+.Home .title {
+    color: #2F3C7E;
+    font-size: large;
+    background-color: #FFF4F5;
+    border-radius: 15px;
+    padding: 10px;
+}
+.Home .navigation {
+    background-color: #A3ABD0;
+    border-radius: 15px;
+    padding: 10px;
+}
