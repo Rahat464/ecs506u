@@ -4,10 +4,47 @@ import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import FDMLogo from '../../assets/FDMLogo.png'
 import { Link } from 'react-router-dom';
+import React, {  useState } from 'react'
 import Header from '../header/header';
+import Finder from '../../API/Finder';
+
 
 
 export const SignUp = () => {
+
+  const [firstname, setFName] = useState("");
+  const [lastname, setLName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validate the email using regex
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!email.match(emailRegex)) {
+      document.getElementById('invalid-credentials').innerText = 'Invalid Email. Please try again.';
+      document.querySelector('input[type="email"]').style.border = '1px solid red';
+      return;
+    }
+    Finder.post("/api/register", {
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      password: password,
+    })
+    .then(response => {
+      console.log(response);
+      console.log('Signed up Successfully');
+      window.location.href = '/LoginForm';
+    })
+    .catch((err) => {
+      console.log('Error signing up In:', err);
+    });
+    
+    
+  }
+
   return (
     <>
     <Header />
@@ -20,24 +57,48 @@ export const SignUp = () => {
         <h1>Sign Up</h1>
         <p>Make a new account</p>
         <div className='input-box'>
-            <input type="text" placeholder='Email' required />
+        <input
+                type="email"
+                placeholder='Email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+            />
             <FaUser className='icon'/>
         </div>
         <div className='Name'>
             <div className='input-name'>
-               <input type="text" placeholder='First name' required />
+            <input
+                type="text"
+                placeholder='First name'
+                value={firstname}
+                onChange={(e) => setFName(e.target.value)}
+                required
+            />
 
             </div>
             <div className='input-name'>
-                <input type="text" placeholder='Last name' required />
+            <input
+                type="text"
+                placeholder='First name'
+                value={lastname}
+                onChange={(e) => setLName(e.target.value)}
+                required
+            />
             </div>
         </div>
         <div className='input-box'>
-            <input type="password" placeholder='Password' required />
+        <input
+                type="password"
+                placeholder='Password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+            />
             <FaLock className='icon' />
         </div>
 
-        <button type ="submit">Sign Up</button>
+        <button onClick={handleSubmit} type ="submit">Sign Up</button>
 
         <div className="have-account">
             <Link to='/LoginForm'>Already have an account?</Link>

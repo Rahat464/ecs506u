@@ -43,7 +43,7 @@ export const LoginForm = () => {
     }).then( (res) => {
       if (res.status === 200) { // successful login
         console.log('Logged In Successfully');
-        window.location.href = '/Dashboard';
+        window.location.href = '/Home';
       } else if (res.status === 401){ // invalid credentials
         document.getElementById('invalid-credentials').innerText = 'Invalid Credentials. Please try again.';
         document.querySelector('input[type="email"]').style.border = '1px solid red';
