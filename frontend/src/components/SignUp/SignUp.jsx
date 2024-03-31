@@ -1,5 +1,4 @@
 // SignUp.jsx
-import React from 'react';
 import './SignUp.css';
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
@@ -41,7 +40,7 @@ export const SignUp = () => {
         <button type ="submit">Sign Up</button>
 
         <div className="have-account">
-          <a href="#"> Already have an account?</a>
+            <Link to='/LoginForm'>Already have an account?</Link>
         </div>
 
         <div className="login-link">

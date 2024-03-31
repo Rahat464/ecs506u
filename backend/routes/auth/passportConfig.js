@@ -30,12 +30,12 @@ passport.use("register", new LocalStrategy(
         passReqToCallback: true
     },
     async function (req, email, password, done) {
-        const { fname, lname } = req.body;
+        const { firstname, lastname } = req.body;
 
         // Hash the password
         password = crypto.createHash('sha256').update(password).digest('hex');
 
-        const values = [fname, lname, email, password];
+        const values = [firstname, lastname, email, password];
         const query = "INSERT INTO employees (firstname, lastname, email, password) VALUES ($1, $2, $3, $4) RETURNING *";
         const res = await db.query(query, values);
 
