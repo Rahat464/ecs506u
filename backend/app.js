@@ -61,3 +61,6 @@ app.use('/api/userProfile', require('./routes/userProfile/userProfile'));
 
 // FAQ
 app.use('/api/faq', require('./routes/faq/faq'));
+
+// Ticket
+app.use('/api/ticket', require('./routes/ticket/ticket'));
