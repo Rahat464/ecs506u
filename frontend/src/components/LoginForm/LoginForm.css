@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto Slab", sans-serif;
 }
 
 body {
@@ -43,16 +45,11 @@ body {
   top: 20px; /* Adjust the top position as needed */
   left: 53%; /* Position the logo in the middle horizontally */
   transform: translateX(-50%); /* Center the logo horizontally */
-  
-    
 }
 
 .Login h1 {
   font-size: 60px;
   text-align: center;
-  text-align: center;
-  font-family: "Roboto Slab";
-  font-size: 70px;
   font-style: normal;
   font-weight: 800;
   color: #4548A0;
@@ -62,7 +59,6 @@ body {
 .Login p {
   color: #000;
   text-align: center;
-  font-family: "Roboto Slab";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -104,13 +100,12 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 14.5px;
-  
+
 }
 .Login .forgot-password a{
   text-decoration: none;
   color: black;
   font-weight: 400;
-  font-family: "Roboto Slab";
   margin-bottom: 15px;
 }
 
@@ -152,4 +147,11 @@ body {
 
 .Login .register-link a:hover{
   text-decoration: underline;
+}
+
+#invalid-credentials {
+  color: red;
+  font-size: 100%;
+  text-align: center;
+  margin-top: 10px;
 }
