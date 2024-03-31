@@ -13,6 +13,8 @@
 .Header img {
     filter: invert();
     height: 90px;
+    margin-left: 20px; /* Adjust the value to move the image to the right */
+    margin-bottom: 10px;
 }
 .Header ul {
     display: flex;
