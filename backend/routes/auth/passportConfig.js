@@ -8,7 +8,8 @@ passport.serializeUser(function(user, done) {
     done(null,
         {
             id: user.id,
-            name: user.firstname
+            name: user.firstname,
+            role: user.account_type
         });
 });
 
@@ -18,13 +19,14 @@ passport.deserializeUser(function(user, done) {
   done(null,
       {
           id: user.id,
-          name: user.name
+          name: user.name,
+          role: user.role
       });
 });
 
 // Register strategy
 passport.use("register", new LocalStrategy(
-    { // TODO change name of fields once front end is updated
+    {
         usernameField: "email",
         passwordField: "password",
         passReqToCallback: true
@@ -64,11 +66,10 @@ passport.use("login", new LocalStrategy(
 
         // If the query fails, return an error message
         if (res === false) return done(null, false, {message: "Database error"});
-        if (res.rows.length === 1) {
-            return done(null, res.rows[0])
-        } else {
-            return done(null, false, {message: "Invalid credentials"})
-        }
+        if (res.rows.length !== 1) return done(null, false, {message: "Invalid credentials"});
+
+        return done(null, res.rows[0]);
+
     }
 ));
 
