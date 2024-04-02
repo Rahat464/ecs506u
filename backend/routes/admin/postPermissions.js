@@ -47,14 +47,16 @@ router.post('/permissions', (req, res, next) => {
 // for now I am quering "issues" - but maybe supportRequests Table is needed.
 router.get('/supportRequests', (req, res) => {
 
-    const getSupportRequests = async (req, res) => {
-        const query = "SELECT * FROM issue"
+    const getSupportRequests = async () => {
+        
+        // INNER JOIN to include the author name
+        const query = "SELECT i.*, e.firstname, e.lastname FROM issue i INNER JOIN employees e ON i.author = e.id ORDER BY i.date DESC;                                                      "
         const data = await db.query(query)
 
         if (data === false) {
             console.log("Not Working.")
         } else {
-            console.log(data.rows[0].title)
+            res.json(data.rows)
             console.log("Working.")
         }
     }
@@ -65,7 +67,7 @@ router.get('/supportRequests', (req, res) => {
 
 // end point and function for marking an issue solved or unsolved.
 router.post('/markIssueSolved', (req, res) => {
-    const markSolved = async (req, res) => {
+    const markSolved = async () => {
 
         const solved = req.body.solved
         const id = req.body.id
@@ -78,6 +80,7 @@ router.post('/markIssueSolved', (req, res) => {
             console.log("Not Working.")
         } else {
             console.log("Working.")
+            res.json({message: "Issue Resolved"})
         }
     }
 

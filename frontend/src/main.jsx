@@ -15,6 +15,7 @@ import Programs from './components/Programs/Programs.jsx'
 import CreatePost from './components/Forum/CreatePost.jsx'
 import EditAccount from './components/Account/EditAccount.jsx'
 import LandingPage from './components/LandingPage/LandingPage.jsx'
+import Admin from './components/Admin/Admin.jsx'
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
   {
     path: '/LandingPage',
     element: <LandingPage />,
+  },
+  {
+    path: '/Admin',
+    element: <Admin />,
   }
 ]);
 
