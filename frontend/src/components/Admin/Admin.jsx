@@ -1,17 +1,27 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "../header/header";
 
 import './admin.css';
+import { UserContext } from "../../context/userContext";
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
-
-    // this page needs to be restricted to admin only based on the user role
-    // user role can be found in the employees table under the account_type
 
     const [issues, setIssues] = useState([]);
     const [solved, setSolved] = useState([]);
 
+    const { user, updateUser } = useContext(UserContext);
 
+    const navigate = useNavigate();
+
+    // restricts to admin only
+    useEffect(() => {
+        if(!user) {
+            navigate('/Loginform');
+        } else if (user.account_type !== 'admin') {
+            navigate('/Home');
+        }
+    })
 
     useEffect(() => {
         const getIssues = async () => {

@@ -3,7 +3,7 @@ import './SignUp.css';
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import FDMLogo from '../../assets/FDMLogo.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, {  useState } from 'react'
 import Header from '../header/header';
 import Finder from '../../API/Finder';
@@ -17,6 +17,10 @@ export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+  // used to redirect users without causing a refresh
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -27,16 +31,28 @@ export const SignUp = () => {
       document.querySelector('input[type="email"]').style.border = '1px solid red';
       return;
     }
-    Finder.post("/api/register", {
-      firstname: firstname,
-      lastname: lastname,
-      email: email,
-      password: password,
-    })
-    .then(response => {
+    // Finder.post("/api/register", {
+    //   firstname: firstname,
+    //   lastname: lastname,
+    //   email: email,
+    //   password: password,
+    // })
+    fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        password: password,
+      })
+    }).then(response => {
       console.log(response);
       console.log('Signed up Successfully');
-      window.location.href = '/LoginForm';
+      navigate('/LoginForm');
     })
     .catch((err) => {
       console.log('Error signing up In:', err);
