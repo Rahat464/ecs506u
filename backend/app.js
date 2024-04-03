@@ -65,3 +65,6 @@ app.use('/api/faq', require('./routes/faq/faq'));
 // Ticket
 app.use('/api/ticket', require('./routes/ticket/ticket'));
 app.use('/api/manageTicket', require('./routes/ticket/manageTicket'));
+
+// Search
+app.use('/api/search', require('./routes/search/searchEmployee'));

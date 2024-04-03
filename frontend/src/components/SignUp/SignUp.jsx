@@ -4,9 +4,10 @@ import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import FDMLogo from '../../assets/FDMLogo.png'
 import { Link, useNavigate } from 'react-router-dom';
-import React, {  useState } from 'react'
+import React, {  useContext, useEffect, useState } from 'react'
 import Header from '../header/header';
 import Finder from '../../API/Finder';
+import { UserContext } from '../../context/userContext';
 
 
 
@@ -17,9 +18,18 @@ export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { user, updateUser } = useContext(UserContext); 
 
   // used to redirect users without causing a refresh
   const navigate = useNavigate();
+
+  // redirect user if logged in
+  useEffect(() => {
+    if(user){
+      navigate('/Home')
+      return
+    }
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault();
