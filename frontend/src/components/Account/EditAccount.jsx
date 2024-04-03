@@ -18,6 +18,7 @@ export const Account = () => {
             <h1>Update Personal information</h1>   
           </div>
           <div className='info'>
+          <form>
             <h1 className='title'>First name</h1>
           <div className='input-box'>
           <input
@@ -59,6 +60,10 @@ export const Account = () => {
                 required
             />
           </div>
+
+          <button type="submit">Save Changes</button>
+          </form>
+
           </div>
 
         </div>
