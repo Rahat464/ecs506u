@@ -64,7 +64,9 @@ app.use('/api/faq', require('./routes/faq/faq'));
 
 // Ticket
 app.use('/api/ticket', require('./routes/ticket/ticket'));
-app.use('/api/manageTicket', require('./routes/ticket/manageTicket'));
+app.use('/api/ticket/getList', require('./routes/ticket/getList'));
+app.use('/api/ticket/updateStatus', require('./routes/ticket/updateStatus'));
+app.use('/api/ticket/assignTicket', require('./routes/ticket/assignTicket'));
 
 // Search
 app.use('/api/search', require('./routes/search/searchEmployee'));
