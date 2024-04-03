@@ -1,9 +1,30 @@
-import React from 'react';
+
 import './Account.css';
 import Header from '../header/header';
+import { useState, useContext, useEffect } from 'react';
+import React from 'react';
+import { UserContext } from '../../context/userContext';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 
 export const Account = () => {
+
+
+ // temporary user state rather than context
+ const {user, updateUser} = useContext(UserContext);
+ // navigate used to redirect users without causing a refresh
+ const navigate = useNavigate();
+
+ // checks for user existence
+ useEffect(() => {
+  if(!user) {
+    navigate('/Loginform');
+  }
+})
+
+  
+
   return (
     <>
         <div>
@@ -22,25 +43,22 @@ export const Account = () => {
           <div className="personal-info">
             <h1 className='title'>First name</h1>
           <div className='fname'>
-           <p>Zahid</p>
+          {user && <p>{ user.firstname }</p>}
           </div>
             <h1 className='title '>Last name</h1>
           <div className='lname'>
-          <p>Zahid</p>
+          {user && <p>{ user.lastname }</p>}
           </div>
           <h1 className='title '>Number</h1>
           <div className='number'>
-          <p>Zahid</p>
+          {user && <p>{ user.phone }</p>}
           </div>
           <h1 className='title '>Email</h1>
           <div className='email'>
-          <p>Zahid</p>
+          {user && <p>{ user.email }</p>}
 
           </div>
-          <h1 className='title '>Password</h1>
-          <div className='password'>
-            <p>Zahid</p>
-          </div>
+          
           </div>
           
           </div>
