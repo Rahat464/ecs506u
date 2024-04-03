@@ -40,26 +40,28 @@ export const Account = () => {
         
           <div className='info'>
     
-          <div className="personal-info">
-            <h1 className='title'>First name</h1>
-          <div className='fname'>
-          {user && <p>{ user.firstname }</p>}
-          </div>
-            <h1 className='title '>Last name</h1>
-          <div className='lname'>
-          {user && <p>{ user.lastname }</p>}
-          </div>
-          <h1 className='title '>Number</h1>
-          <div className='number'>
-          {user && <p>{ user.phone }</p>}
-          </div>
-          <h1 className='title '>Email</h1>
-          <div className='email'>
-          {user && <p>{ user.email }</p>}
-
-          </div>
-          
-          </div>
+            <div className="personal-info">
+              <h1 className='title'>First name</h1>
+              <div className='fname'>
+                {user && <p>{ user.firstname }</p>}
+              </div>
+                <h1 className='title '>Last name</h1>
+              <div className='lname'>
+                {user && <p>{ user.lastname }</p>}
+              </div>
+                <h1 className='title '>Number</h1>
+              <div className='number'>
+                {user && <p>{ user.phone }</p>}
+              </div>
+                <h1 className='title '>Email</h1>
+              <div className='email'>
+                {user && <p>{ user.email }</p>}
+              </div>
+              <div>
+                <Link to='/EditAccount'><button>Edit Personal Info</button></Link>
+              </div>
+            
+            </div>
           
           </div>
           
