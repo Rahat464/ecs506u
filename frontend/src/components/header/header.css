@@ -66,4 +66,17 @@
 .Header .dropdown:hover .dropdown-forum, .Header .dropdown:hover .dropdown-account {
     display: block;
 }
-  
+
+.Header button {
+    height: 30px;
+    width: 60px;
+    border-radius: 10px;
+    border-style: none;
+    margin-left: 10px;
+}
+
+.Header button:hover {
+    background-color: #2F3C7E;
+    color: white;
+    cursor: pointer;
+}
