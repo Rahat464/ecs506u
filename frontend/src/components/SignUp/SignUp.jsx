@@ -96,7 +96,7 @@ export const SignUp = () => {
             <div className='input-name'>
             <input
                 type="text"
-                placeholder='First name'
+                placeholder='Last name'
                 value={lastname}
                 onChange={(e) => setLName(e.target.value)}
                 required
