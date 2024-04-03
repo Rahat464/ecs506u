@@ -20,21 +20,6 @@ export const Home = () => {
     }
   })
 
-  const handleLogout = () => {
-    fetch('/api/logout', {
-      method: 'POST'
-    })
-    .then( (res) => {
-      if (res.status === 200) {
-        updateUser(null);
-        localStorage.removeItem('user');
-        navigate('/Loginform');
-      } else {
-        throw new Error('Unknown status code returned from the server.');
-      }
-    })
-  }
-
   return (
     <>
         <Header />
@@ -42,7 +27,6 @@ export const Home = () => {
             <div className='title'>
                 {user && <h1>Welcome to your FDM Employee Portal, { user.firstname }</h1>}
             </div>
-            <button onClick={ handleLogout }> Logout </button>
             <div className='navigation'>
                 
             </div>
