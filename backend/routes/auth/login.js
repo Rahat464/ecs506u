@@ -9,7 +9,7 @@ router.post('/', (req, res, next) => {
 
         req.logIn(user, (err) => {
             if (err) return res.status(500).json({message: 'An error occurred'});
-            return res.status(200).json({message: 'Login successful'});
+            return res.status(200).json({user: user});
         });
     })(req, res, next);
 });
