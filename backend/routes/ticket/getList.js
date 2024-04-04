@@ -21,10 +21,4 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Update ticket status (for HR employees)
-// TODO: Write this route after front end is implemented
-
-// Assign ticket to HR user (e.g. managedBy null -> HR user id)
-// TODO: Write this route after front end is implemented
-
 module.exports = router;
