@@ -51,6 +51,20 @@ export const Header = () => {
                     <li><Link to='/Contact' className='link'>Contact</Link></li>
                     <li><Link to='/Documents' className='link'>Documents</Link></li>
                     <li><Link to='/Programs' className='link'>Programs</Link></li>
+                    <div>
+                      { user.account_type === 'admin' ? (
+                        <li><Link to='/Admin' className='link'> Admin Dashboard </Link></li>
+                      ) : (
+                        <></>
+                       )}
+                    </div>
+                    <div>
+                      { user.account_type === 'hr' ? (
+                        <li><Link to='/HR' className='link'> HR Dashboard </Link></li>
+                      ) : (
+                        <></>
+                       )}
+                    </div>
                     <li className='dropdown'>
                         Account
                         <ul className='dropdown-account'>
@@ -59,14 +73,16 @@ export const Header = () => {
                         </ul>
                     </li>
                     <li> <button onClick={ handleLogout }> Logout </button></li>
-                </ul> 
-                ): (
+                </ul>
+                
+
+                ) : (
                   // otherwise render this 
                     <ul>
                         <li><Link to='/Loginform' className='link'> Login </Link></li>
                         <li><Link to='/Signup' className='link'> Signup </Link></li>
                     </ul>
-                 ) }
+                 )  }
         </div>
     </>
   );
