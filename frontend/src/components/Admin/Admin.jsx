@@ -123,53 +123,117 @@ const Admin = () => {
 
     }
 
+
+    const submitPermissionChanges = (e) => {
+        e.preventDefault();
+        console.log('submitting');
+
+        fetch('/api/admin/permissions',  {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({
+                // fill out with state
+                canPost: e.target.post_option.value,
+                account_type: e.target.account_type.value,
+                firstname: e.target.firstname.value,
+                lastname: e.target.lastname.value
+            })
+        }).then( response => {
+            if(response.ok) {
+                console.log('Success');
+            } else {
+                console.log('Failed');
+            }
+        })
+    }
+
+
+
     return ( 
-        <div>
-            <Header />
+        <>
+        <Header />
+        {user && <h1 className="page-title"> Welcome to the Admin Dashboard, {user.firstname }</h1>}
+        <div className="admin-page">
+            
+            <div className="issue-section">
+                {/* simple search for all, solved or unsolved */}
+                <div className="issue-search">
+                    <input type="text" placeholder="Search Issues" />
+                    <select name="" id="">
+                        <option value=""> All </option>
+                        <option value=""> Solved </option>
+                        <option value=""> Unsolved </option>
+                    </select>
+                    <button>Search</button>
+                </div>
 
+                {issues && 
+                <div className="dashboard">
+                    {issues.map(issue => (
+                        <div className="issue" key={issue.id}>
+                            <h1> {issue.title} </h1>
+                            <div className="issue-information">
+                                <p className="description"> {issue.description} </p>
+                                <div className="issue-info">
+                                    <p> submitted by {issue.firstname} {issue.lastname} </p>
+                                    {/* needs date formating  */}
+                                    <p> {issue.date} </p>
+                                </div>
+                            </div>
+                            <button className="solved-btn" onClick={ () => { markSolved(issue) }}>Mark as Solved</button>
+                        </div>
+                    ))}
+                </div>}
 
-            {/* simple search for all, solved or unsolved */}
-            <div className="issue-search">
-                <input type="text" placeholder="Search Issues" />
-                <select name="" id="">
-                    <option value=""> All </option>
-                    <option value=""> Solved </option>
-                    <option value=""> Unsolved </option>
-                </select>
-                <button>Search</button>
+                <button onClick={ () => { console.log(solved)} }> Show solved </button>
+            </div>
+            
+            <div className="permissions-area">
+                <h1 className="permissions-title"> Change Permissions </h1>
+                <form className="permissions-form" onSubmit={ (e) => { submitPermissionChanges(e) } } >
+                    <div className="label-group" required={true}>
+                        <label htmlFor="post_option"> Can post: </label>
+                        <select name="post_option" id="">
+                            <option value="true">true</option>
+                            <option value="false">false</option>
+                        </select>
+                    </div>
+                    <div className="label-group">
+                        <label htmlFor="account_type"> Account Type: </label>
+                        <select name="account_type" id="" required={true}>
+                            <option value="none"> none </option>
+                            <option value="admin"> admin </option>
+                            <option value="hr"> hr </option>
+                            <option value="ex-forces"> ex-forces </option>
+                            <option value="returner"> returner </option>
+                            <option value="graduate"> graduate </option>
+                        </select>
+                    </div>
+                    <div className="label-group">
+                        <label htmlFor="firstname"> Firstname: </label>
+                        <input 
+                            name="firstname"
+                            type="text"
+                            required={true}
+                        />
+                    </div>
+                    <div className="label-group">
+                        <label htmlFor="lastname"> Lastname: </label>
+                        <input 
+                            name="lastname"
+                            type="text"
+                            required={true}
+                        />
+                    </div>
+                    <button type="submit" className="submit-btn"> Submit </button>
+                </form>
             </div>
 
-            {issues && 
-            <div className="dashboard">
-                {issues.map(issue => (
-                    <div className="issue" key={issue.id}>
-                        <h1> {issue.title} </h1>
-                        <p className="description"> {issue.description} </p>
-                        <p> submitted by {issue.firstname} {issue.lastname} </p>
-                        {/* needs date formating  */}
-                        <p> {issue.date} </p>
-                        <button className="solved-btn" onClick={ () => { markSolved(issue) }}>Mark as Solved</button>
-                    </div>
-                ))}
-            </div>}
-
-            <button onClick={ () => { console.log(solved)} }> Show solved </button>
-
-            {solved && 
-            <div>
-                {solved.map(solvedIssue => (
-                    <div className="solved-issues" key={solvedIssue.id}>
-                        <h1> {solvedIssue.title} </h1>
-                        <p className="description"> {solvedIssue.description} </p>
-                        <p> submitted by {solvedIssue.firstname} {solvedIssue.lastname} </p>
-                        {/* needs date formating  */}
-                        <p> {solvedIssue.date} </p>
-                        <button className="solved-btn" onClick={ () => { markUnSolved(solvedIssue) }}>Mark as Solved</button>
-                    </div>
-                ))}
-            </div>}
-            <br />
         </div>
+        </>
      );
 }
  

@@ -10,18 +10,19 @@ router.post('/permissions', (req, res, next) => {
 
         // req body values
         const canPost = req.body.canPost
-        const email = req.body.email
+        const account_type = req.body.account_type
+        const firstname = req.body.firstname
+        const lastname = req.body.lastname
 
         // debug outputs
-        console.log(canPost)
-        console.log(email)
+        // console.log(canPost)
 
-        const values = [canPost, email]
-        const query = "UPDATE employees SET canpost = $1 WHERE email = $2"
+        const values = [canPost, account_type, firstname, lastname]
+        const query = "UPDATE employees SET canpost = $1, account_type = $2 WHERE firstname = $3 AND lastname = $4"
 
 
         // maybe rename "res" to "data" or something
-        const res = await db.query(query, values)
+        const data = await db.query(query, values)
         console.log(values)
 
         // If the query fails, return an error message
@@ -33,10 +34,12 @@ router.post('/permissions', (req, res, next) => {
         // }
 
         // temporary response --> needs to be altered for a proper error response
-        if (res === false) {
+        if (!data) {
+            res.status(400).json({message: "What is going on."})
             console.log("Not Working.")
         } else {
             console.log("Working.")
+            res.status(200).json({message: "Permissions Updated"})
         }
     }
 

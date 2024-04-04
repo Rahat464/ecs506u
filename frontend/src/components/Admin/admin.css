@@ -1,21 +1,63 @@
 
+.page-title {
+    margin-top: 120px;
+    text-align: center;
+    color: white;
+}
+
+.admin-page {
+    display: flex;
+    margin-top: 50px;
+    width: 90vw;
+    justify-content: space-between;
+}
+
+.issue-section {
+    width: 60%;
+    /* background-color: green; */
+    margin: 0 10px;
+}
+
 .issue-search {
-    margin-top:200px;
+    margin: 20px;
 }
 
 .dashboard {
-    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
 }
 
 .issue, .solved-issues {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 800px;
+    width: 80%;
     background-color: rgba(255, 255, 255);
     padding: 5px;
     margin: 5px;
     min-height: 70px;
+}
+
+.issue-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
+    align-items: center;
+    width: 100%;
+}
+
+.description {
+    padding: 10px;
+}
+
+.issue-info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }
 
 .solved-issues {
@@ -31,4 +73,52 @@
     display: flex;
     align-items: center;
     max-width: 250px;
+}
+
+.permissions-area {
+    width: 40%;
+    /* background-color: blue; */
+    margin-right: 45px;
+}
+
+.permissions-title {
+    color: white;
+    width: 100%;
+}
+
+.permissions-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 10px;
+}
+
+.label-group {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 10px;
+}
+
+label {
+    width: 40%;
+    color: white;
+}
+
+select, input {
+    width: 40%;
+    height: 30px;
+    text-align: center;
+}
+
+button {
+    width: 80%;
+    height: 25px;
+    margin-top: 20px;
+}
+
+.submit-btn {
+    width: 90%;
 }
