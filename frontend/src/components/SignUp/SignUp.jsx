@@ -6,6 +6,7 @@ import FDMLogo from '../../assets/FDMLogo.png'
 import { Link, useNavigate } from 'react-router-dom';
 import React, {  useContext, useEffect, useState } from 'react'
 import Header from '../header/header';
+import { UserContext } from '../../context/userContext';
 //import Finder from '../../API/Finder';
 
 
