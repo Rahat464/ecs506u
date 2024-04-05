@@ -43,7 +43,7 @@
     border-radius: 15px;
     width: 55vw;
 }
-.inputDesc {
+.inputTitle {
     width: 90vw;
     height: 3vw;
     background: white;
@@ -64,7 +64,7 @@
     padding: 10px;
 }
 
-.inputDesc input {
+.inputTitle input {
     width: 100%; /* Adjusted width to fill the container */
     height: 100%;
     margin-left: 30px;
@@ -108,7 +108,7 @@
 
 .wrapper button {
     font-size: 17px;
-    width: 80%;
+    width: 50%;
     margin-right: 1200px;
     margin-top: 20px;
     height: 50px;

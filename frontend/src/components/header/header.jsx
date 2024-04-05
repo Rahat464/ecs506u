@@ -70,6 +70,7 @@ export const Header = () => {
                         <ul className='dropdown-account'>
                             <li><Link to='/Account' className='link'>Account</Link></li>
                             <li><Link to='/EditAccount' className='link'>Edit Account Info</Link></li>
+                            <li><Link to='/LeaveRequest' className='link'>Request</Link></li>
                         </ul>
                     </li>
                     <li> <button onClick={ handleLogout }> Logout </button></li>
