@@ -73,6 +73,7 @@
     border-radius: 10px;
     border-style: none;
     margin-left: 10px;
+    margin-bottom: 15px;
 }
 
 .Header button:hover {
@@ -80,3 +81,4 @@
     color: white;
     cursor: pointer;
 }
+
