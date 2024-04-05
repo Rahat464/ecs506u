@@ -100,7 +100,7 @@ const LeaveRequest = () => {
 
                 <h1 className='title'>Select Request Type</h1>
                 {/* Dropdown menu for selecting request type */}
-                <select className="select" value={selectedOption} onChange={handleOptionChange}>
+                <select className="select" value={selectedOption} onChange={handleOptionChange} required>
                     <option value="">Select...</option>
                     <option value="leave-request"> Leave Request</option>
                     <option value="general-ticket">General Ticket</option>
