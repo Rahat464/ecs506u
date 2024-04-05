@@ -70,3 +70,7 @@ app.use('/api/ticket/assignTicket', require('./routes/ticket/assignTicket'));
 
 // Search
 app.use('/api/search', require('./routes/search/searchEmployee'));
+
+// Document
+app.use('/api/document/upload', require('./routes/document/uploadDocument'));
+app.use('/api/document/getList', require('./routes/document/getList'));
