@@ -53,13 +53,19 @@ export const SearchResults = () => {
     <>
         <Header />
         <div className='SearchResults'>
-            <h1 className='title'>Accounts with '{query}' in name</h1>
+            <h1 className='title'>Accounts with '{query}' in first name</h1>
+            <div className='headings'>
+              <h2>Name</h2>
+              <h2>Email</h2>
+              <h2>Role</h2>
+            </div>
             {searchResults && <div className='results'>
               {searchResults.map( (result) => {
                 return (
                   <div className='result'>
-                    <h2>{result.name}</h2>
+                    <p>{result.firstname} {result.lastname}</p>
                     <p>{result.email}</p>
+                    <p>{result.account_type}</p>
                   </div>
                 )
               })}

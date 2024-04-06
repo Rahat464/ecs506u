@@ -13,10 +13,35 @@
     background-color: #FFF4F5;
     border-radius: 15px;
     padding: 10px;
+    display: flex;
+    position: relative;
+    right:10px;
+}
+
+.SearchResults .headings {
+    background-color: #2F3C7E;
+    color: #FFF4F5;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .SearchResults .results {
     background-color: #A3ABD0;
     border-radius: 15px;
     padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.SearchResults .result {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
 }
