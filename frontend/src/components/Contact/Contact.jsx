@@ -34,7 +34,7 @@ const Contact = () => {
     return (
       <div className='faq-item'>
         <button className='question' onClick={toggleAnswer}>
-          {question}
+          {question} 
         </button>
         {isOpen && <div className='answer'>{answer}</div>}
       </div>
@@ -57,7 +57,7 @@ const Contact = () => {
           
             {faqData.map(item => (
               <FAQItem
-                key={item.id} // Assuming each FAQ item has an "id" property
+                key={item.id} // each FAQ item has an "id" property
                 question={item.question}
                 answer={item.answer}
               />
