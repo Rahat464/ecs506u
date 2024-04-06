@@ -20,6 +20,7 @@ import LandingPage from './components/LandingPage/LandingPage.jsx'
 import Admin from './components/Admin/Admin.jsx'
 import SearchResults from './components/SearchResults/SearchResults.jsx'
 import LeaveRequest from './components/LeaveRequest/LeaveRequest.jsx'
+import Issue from './components/Issue/Issue.jsx'
 
 const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
   {
     path: '/LeaveRequest',
     element: <LeaveRequest/>,
+  },
+  {
+    path: '/Issue',
+    element: <Issue />,
   }
 ]);
 

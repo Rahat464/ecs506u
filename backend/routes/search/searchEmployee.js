@@ -4,7 +4,7 @@ const router = express.Router();
 const db = new (require('../../db'))()
 
 // search for an employee
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
     const search = async () => {
 
         const searchParam = req.body.searchParam

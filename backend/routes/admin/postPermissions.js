@@ -90,4 +90,28 @@ router.post('/markIssueSolved', (req, res) => {
     markSolved(req, res)
 })
 
+
+router.post('/makeSupportRequest', (req, res) => {
+    const makeSupportRequest = async () => {
+
+        const title = req.body.title
+        const description = req.body.description
+        const date = req.body.date
+        const author = req.body.author
+
+        const values = [title, description, date, author]
+        const query = "INSERT INTO issue (title, description, date, author, solved) VALUES ($1, $2, $3, $4, 'false')"
+        const data = await db.query(query, values)
+
+        if (data === false) {
+            console.log("Not Working.")
+        } else {
+            console.log("Working.")
+            res.json({message: "Support Request Sent"})
+        }
+    }
+
+    makeSupportRequest(req, res)
+})
+
 module.exports = router;

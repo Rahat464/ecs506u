@@ -79,6 +79,7 @@ export const Header = () => {
                             <li><Link to='/Account' className='link'>Account</Link></li>
                             <li><Link to='/EditAccount' className='link'>Edit Account Info</Link></li>
                             <li><Link to='/LeaveRequest' className='link'>Request</Link></li>
+                            <li><Link to='/Issue' className='link'> Issue </Link></li>
                         </ul>
                     </li>
                     <li> <button onClick={ handleLogout }> Logout </button></li>
