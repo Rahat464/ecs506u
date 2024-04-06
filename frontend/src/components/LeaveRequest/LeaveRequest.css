@@ -1,0 +1,124 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 85vh;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    position: relative; /* Ensure positioning context */
+
+}
+.Account-header{
+    background-color: #FFF4F5;
+    border-radius: 15px;
+    width: 95vw;
+    height: 4vw;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    display: flex; 
+    align-items: center; /* Center vertically */
+    position: relative; /* Add position relative */
+}
+
+.Account-header h1{
+    color: #4548A0;
+    text-align: left;
+    font-family: "Roboto Slab";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    padding-left: 20px;
+}
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.personal-info {
+    display: flex;
+    flex-direction: column;
+    background-color: #A3ABD0;
+    padding: 10px;
+    border-radius: 15px;
+    width: 55vw;
+}
+.inputTitle {
+    width: 90vw;
+    height: 3vw;
+    background: white;
+    border-radius: 15px;
+    text-align: left; /* Align text to the left */
+    font-size: 16px; /* Increase font size */
+    padding-left: 10px;
+}
+
+.inputNotes {
+    width: 90vw;
+    height: 13vw;
+    background: white;
+    border: 1.5px solid #345E9D;
+    border-radius: 15px;
+    text-align: left; /* Align text to the left */
+    font-size: 16px; /* Increase font size */
+    padding: 10px;
+}
+
+.inputTitle input {
+    width: 100%; /* Adjusted width to fill the container */
+    height: 100%;
+    margin-left: 30px;
+}
+
+.inputNotes textarea {
+    width: 100%; /* Adjusted width to fill the container */
+    height: 100%;
+    margin-left: 30px;
+}
+
+.notes {
+    margin-bottom: 30px;
+}
+
+.select {
+    border-radius: 10px;
+    height: 3vw;
+    margin-bottom: 15px;
+}
+
+.startDate, .endDate{
+    position: relative;
+    bottom:27px;
+    width: 70%;
+}
+
+.title{
+    font-size: 22px;
+    font-family: "Roboto Slab";
+    font-weight: 500;
+    line-height: normal;
+    text-align: left;
+    padding-left: 9px;
+    position: relative;
+    padding: 5px;
+
+}
+
+
+
+.wrapper button {
+    font-size: 17px;
+    width: 50%;
+    margin-right: 1200px;
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+.wrapper button:hover {
+    color: white;
+    background-color: #4548A0;
+    cursor:pointer;
+}
+
