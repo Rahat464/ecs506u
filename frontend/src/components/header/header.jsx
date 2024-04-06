@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './header.css';
-import FDMLogo from '../../assets/FDMLogo.png'
-import { Link, useNavigate } from 'react-router-dom';
+import FDMLogo from '../../assets/FDMLogo.png';
+import search from '../../assets/search-icon.png';
+import { Link, useNavigate} from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 
 
@@ -27,6 +28,13 @@ export const Header = () => {
             throw new Error('Unknown status code returned from the server.');
           }
         })
+      }
+
+      const [searchQuery, setSearchQuery] = useState('');
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate(`/SearchResults?query=${searchQuery}`);
       }
 
   return (
@@ -73,6 +81,18 @@ export const Header = () => {
                         </ul>
                     </li>
                     <li> <button onClick={ handleLogout }> Logout </button></li>
+                    <li>
+                      <form onSubmit={handleSubmit} className='search-bar'>
+                        <input 
+                          type='text'
+                          placeholder='Search for employee'
+                          className='search'
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                        <button type='submit'><img src={search} /></button>
+                      </form>
+                    </li>
                 </ul>
                 
 

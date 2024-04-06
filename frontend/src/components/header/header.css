@@ -23,9 +23,46 @@
     align-items: center;
     height: 80px;
 }
+
 .Header li {
     list-style: none;
     padding-right: 40px;
+}
+
+.Header form {
+    display: flex;
+    position: relative;
+}
+
+.Header input {
+    display: flex;
+    width: 220px;
+    height: 35px;
+    text-align: left;
+    font-size: 15px;
+    padding-left: 7px;
+    padding-bottom: 1px;
+    border-radius: 10px;
+    border-style: none;
+    position: relative;
+    top: 16px;
+}
+
+.Header form button {
+    display: flex;
+    position: relative;
+    right: 45px;
+    bottom: 1.5px;
+    width: 30px;
+}
+
+.Header form img {
+    filter: blur();
+    display: flex;
+    position: relative;
+    right:15px;
+    top: 5px;
+    height: 20px;
 }
 
 .Header .link {

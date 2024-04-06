@@ -18,6 +18,7 @@ import CreatePost from './components/Forum/CreatePost.jsx'
 import EditAccount from './components/Account/EditAccount.jsx'
 import LandingPage from './components/LandingPage/LandingPage.jsx'
 import Admin from './components/Admin/Admin.jsx'
+import SearchResults from './components/SearchResults/SearchResults.jsx'
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
   {
     path: '/Admin',
     element: <Admin />,
+  },
+  {
+    path: '/SearchResults',
+    element: <SearchResults />,
   }
 ]);
 
