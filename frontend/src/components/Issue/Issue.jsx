@@ -64,7 +64,7 @@ const Issue = () => {
                     <div className="input-box">
                         <input type="date" />
                     </div>
-                    <button type="submit">Submit</button>
+                    <button className="issue-button" type="submit">Submit</button>
                 </form>
             </div>
         </>

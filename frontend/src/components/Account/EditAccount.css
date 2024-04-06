@@ -84,3 +84,14 @@
     color: #A3ABD0;
     padding-left: 7px;
 }
+
+.save-button{
+    font-size: 17px;
+    width: 80%;
+    margin-top: 30px;
+    height: 50px;
+    border-radius: 10px;
+    border-style: none;
+    padding-right: 47px;
+    text-align: center;
+}

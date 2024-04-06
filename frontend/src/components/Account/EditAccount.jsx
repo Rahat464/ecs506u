@@ -116,7 +116,7 @@ export const EditAccount = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button type="submit">Save Changes</button>
+            <button className="save-button" type="submit">Save Changes</button>
           </form>
         </div>
       </div>

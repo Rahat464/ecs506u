@@ -1,17 +1,69 @@
-import React from 'react';
-import './Contact.css';
-import FDMLogo from '../../assets/FDMLogo.png'
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import Header from '../header/header';
+import './Contact.css'; 
 
 
-export const Contact = () => {
+const Contact = () => {
+  const [faqData, setFaqData] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/faq')
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Failed to fetch FAQ data');
+      })
+      .then(data => {
+        setFaqData(data);
+      })
+      .catch(error => {
+        console.error('Error fetching FAQ data:', error);
+      });
+  }, []);
+
+  const FAQItem = ({ question, answer }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleAnswer = () => {
+      setIsOpen(!isOpen);
+    };
+
+    return (
+      <div className='faq-item'>
+        <button className='question' onClick={toggleAnswer}>
+          {question}
+        </button>
+        {isOpen && <div className='answer'>{answer}</div>}
+      </div>
+    );
+  };
+
   return (
     <>
+      <div>
         <Header />
-        <div className='Contact'>
-            <h1>this is the contact information</h1>
+      </div>
+
+      <div className='container'>
+         <div className='Contact-header'>
+          <h1>Contact</h1>
         </div>
+
+        <div className='contact-info'>
+          <div className="contact-wrapper">
+          
+            {faqData.map(item => (
+              <FAQItem
+                key={item.id} // Assuming each FAQ item has an "id" property
+                question={item.question}
+                answer={item.answer}
+              />
+            ))}
+          </div>
+          
+        </div>
+      </div>
     </>
   );
 };

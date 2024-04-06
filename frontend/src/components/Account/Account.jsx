@@ -54,9 +54,9 @@ export const Account = () => {
             <div className='number'>{user && <p>{user.phone}</p>}</div>
             <h1 className='title'>Email</h1>
             <div className='email'>{user && <p>{user.email}</p>}</div>
-            <div className='save-button'>
+            <div className='edit-button'>
               <Link to='/EditAccount'>
-                <button>Edit Personal Info</button>
+                <button className='button'>Edit Personal Info</button>
               </Link>
             </div>
           </div>
