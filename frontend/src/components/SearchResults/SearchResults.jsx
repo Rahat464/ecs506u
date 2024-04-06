@@ -19,7 +19,10 @@ export const SearchResults = () => {
     <>
         <Header />
         <div className='SearchResults'>
-            <h1>Accounts with '{query}' in name</h1>
+            <h1 className='title'>Accounts with '{query}' in name</h1>
+            <div className='results'>
+
+            </div>
         </div>
     </>
   );

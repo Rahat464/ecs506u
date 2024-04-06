@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+.SearchResults {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 20px;
+    font-family: "Roboto Slab";
+}
+.SearchResults .title {
+    color: #2F3C7E;
+    font-size: 40px;
+    background-color: #FFF4F5;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.SearchResults .results {
+    background-color: #A3ABD0;
+    border-radius: 15px;
+    padding: 10px;
+}
