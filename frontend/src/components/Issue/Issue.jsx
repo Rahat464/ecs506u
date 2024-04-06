@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Issue = () => {
+    document.title = 'Submit an Issue';
 
     const {user, updateUser} = useContext(UserContext)
 

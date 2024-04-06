@@ -4,6 +4,8 @@ import './Contact.css';
 
 
 const Contact = () => {
+  document.title = 'Contact Page';
+
   const [faqData, setFaqData] = useState([]);
 
   useEffect(() => {

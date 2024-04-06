@@ -6,6 +6,7 @@ import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
+    document.title = 'Admin Dashboard';
 
     const [issues, setIssues] = useState([]);
     const [solved, setSolved] = useState([]);

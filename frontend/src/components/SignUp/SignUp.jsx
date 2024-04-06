@@ -12,6 +12,7 @@ import { UserContext } from '../../context/userContext';
 
 
 export const SignUp = () => {
+  document.title = 'Sign Up';
 
   const [firstname, setFName] = useState("");
   const [lastname, setLName] = useState("");

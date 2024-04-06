@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const LeaveRequest = () => {
+  document.title = 'Request Leave';
     const navigate = useNavigate();
     const { user } = useContext(UserContext);
 

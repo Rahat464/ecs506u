@@ -7,7 +7,8 @@ import { useLocation } from 'react-router-dom';
 
 
 export const SearchResults = () => {
-  
+  document.title = 'Search Results';
+
   const { user, updateUser } = useContext(UserContext);
 
   const [searchResults, setSearchResults] = useState([]);

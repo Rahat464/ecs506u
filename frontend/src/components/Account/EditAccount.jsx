@@ -5,6 +5,8 @@ import { UserContext } from '../../context/userContext';
 import { useNavigate } from 'react-router-dom';
 
 export const EditAccount = () => {
+  document.title = 'Edit Account';
+
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
 

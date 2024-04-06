@@ -10,6 +10,7 @@ import Header from '../header/header';
 import { UserContext } from '../../context/userContext';
 
 export const LoginForm = () => {
+  document.title = 'Login Form';
 
   // declare the navigate function using hook
   const navigate = useNavigate();

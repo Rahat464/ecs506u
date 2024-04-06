@@ -6,6 +6,8 @@ import Header from '../header/header';
 
 
 export const Documents = () => {
+  document.title = 'Your Documents';
+
   return (
     <>
         <Header />

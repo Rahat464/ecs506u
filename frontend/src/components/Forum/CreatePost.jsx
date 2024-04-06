@@ -7,6 +7,7 @@ import { UserContext } from '../../context/userContext';
 
 
 export const CreatePost = () => {
+  document.title = 'Create a Post';
 
   const { user, updateUser } = useContext(UserContext); 
 

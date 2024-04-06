@@ -7,7 +7,7 @@ import { UserContext } from '../../context/userContext';
 
 
 export const Home = () => {
-
+  document.title = 'Home';
   const { user, updateUser } = useContext(UserContext);
 
   // navigate used to redirect users without causing a refresh

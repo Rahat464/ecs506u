@@ -6,6 +6,8 @@ import Header from '../header/header';
 
 
 export const Forum = () => {
+  document.title = 'Forum';
+
   return (
     <>
         <Header />
