@@ -1,4 +1,4 @@
-.wrapper {
+.container {
     display: flex;
     flex-direction: column;
     min-height: 85vh;
@@ -89,6 +89,7 @@
 
 .save-button{
     font-size: 17px;
+    margin-left: 60px;
     width: 100%;
     margin-top: 30px;
     height: 50px;
@@ -96,5 +97,4 @@
     border-style: none;
     padding-right: 47px;
     text-align: center;
-    margin-left: 31%;
 }

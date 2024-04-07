@@ -31,6 +31,7 @@
     border-bottom: 1.5px solid #345E9D;
     font-size: 18px;
     padding-left: 10px;
+    text-align: left;
   }
   .SignUp .input-name input::placeholder{
     color: #A3ABD0;
@@ -93,6 +94,7 @@
     color: #4548A0;
     opacity: 0.7;
     margin-top: 110px;
+    margin-bottom: 0;
   }
   .SignUp p {
     color: #000;
@@ -120,6 +122,8 @@
     border-bottom: 1.5px solid #345E9D;
     font-size: 18px;
     padding-left: 10px;
+    border-radius: 0;
+    text-align: left;
   }
 
   .SignUp .input-box input::placeholder{
@@ -165,6 +169,12 @@
     font-size: 16px;
     color: white;
     font-weight: 700;
+    margin: 0;
+  }
+  .SignUp button:hover{
+    color: blue;
+    background-color: white;
+    cursor:pointer;
   }
 
   .SignUp .login-link{
@@ -179,6 +189,7 @@
     color: white;
     font-weight: 700;
     padding: 15px;
+    text-align: center;
   }
 
   .SignUp .login-link a{

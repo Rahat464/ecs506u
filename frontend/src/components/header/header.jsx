@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './header.css';
 import FDMLogo from '../../assets/FDMLogo.png';
 import search from '../../assets/search-icon.png';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 
 
@@ -88,7 +88,7 @@ export const Header = () => {
                             <li><Link to='/Issue' className='link'> Issue </Link></li>
                         </ul>
                     </li>
-                    <li> <button onClick={ handleLogout }> Logout </button></li>
+                    <li><button onClick={ handleLogout }> Logout </button></li>
                     <li>
                       <form onSubmit={handleSubmit} className='search-bar'>
                         <input 

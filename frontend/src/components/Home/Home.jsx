@@ -40,14 +40,14 @@ export const Home = () => {
                     <li className='main'><Link to='/Documents' className='link'>Documents</Link></li>
                     <li className='main'><Link to='/Programs' className='link'>Programs</Link></li>
                     <div>
-                      { user.account_type === 'admin' ? (
+                      { user && user.account_type === 'admin' ? (
                         <li className='main'><Link to='/Admin' className='link'> Admin Dashboard </Link></li>
                       ) : (
                         <></>
                        )}
                     </div>
                     <div>
-                      { user.account_type === 'hr' ? (
+                      { user && user.account_type === 'hr' ? (
                         <li className='dropdown'>
                         <p className='main'>HR</p>
                           <ul className='y'>

@@ -2,46 +2,42 @@ import React, { useState, useEffect, useContext } from 'react';
 import styles from './replyPost.module.css';
 import Header from '../header/header';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 
 const backendURL = "http://localhost:4000";
 
-const ReplyBlog = () => {
-  const [blogs, setBlogs] = useState([]);
+const ReplyPost = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [replies, setReplies] = useState([]);
   const [replyText, setReplyText] = useState('');
   const { user } = useContext(UserContext);
+  const { blogId } = useParams(); // Make sure useParams() is imported and used correctly
+
+  console.log('blogId:', blogId); // Check if blogId is received correctly
 
   useEffect(() => {
-    fetchBlogs();
-  }, []);
+    if (blogId) { // Make sure blogId exists before fetching data
+      fetchSelectedBlog();
+      fetchReplies();
+    }
+  }, [blogId]); // Include blogId in the dependency array
 
-  const fetchBlogs = async () => {
+  const fetchSelectedBlog = async () => {
     try {
-      const response = await axios.get(`${backendURL}/api/posts`);
-      setBlogs(response.data);
+      const response = await axios.get(`${backendURL}/api/posts/${blogId}`);
+      setSelectedBlog(response.data);
     } catch (error) {
-      console.error('Error fetching blogs:', error);
+      console.error('Error fetching selected blog:', error);
     }
   };
-
-  const fetchReplies = async (postId) => {
+  
+  const fetchReplies = async () => {
     try {
-      const response = await axios.get(`${backendURL}/api/posts/replies/${postId}`);
+      const response = await axios.get(`${backendURL}/api/posts/replies/${blogId}`);
       setReplies(response.data);
     } catch (error) {
       console.error('Error fetching replies:', error);
-    }
-  };
-
-  const handleBlogSelect = (event) => {
-    const blogId = event.target.value;
-    const selected = blogs.find(blog => blog.id === parseInt(blogId));
-    setSelectedBlog(selected);
-    if (selected) {
-      fetchReplies(selected.id);
     }
   };
 
@@ -59,7 +55,7 @@ const ReplyBlog = () => {
       }
   
       const replyData = {
-        postid: selectedBlog.id,
+        postid: selectedBlog.id, // Update key to 'postid'
         body: replyText,
         author: user.id,
       };
@@ -68,7 +64,7 @@ const ReplyBlog = () => {
   
       console.log('Reply submitted:', response.data);
   
-      fetchReplies(selectedBlog.id);
+      fetchReplies();
   
       setReplyText('');
     } catch (error) {
@@ -80,6 +76,7 @@ const ReplyBlog = () => {
     }
   };
   
+
   const renderReplies = () => {
     return replies.map(reply => (
       <div key={reply.id} className={styles.reply}>
@@ -98,16 +95,6 @@ const ReplyBlog = () => {
       <div className={styles.content}>
         <h1>Reply to Blog</h1>
         <hr className={styles.separator} />
-        <div className={styles.dropdown}>
-          <select id='blogSelect' onChange={handleBlogSelect}>
-            <option value=''>Select a Blog</option>
-            {blogs.map(blog => (
-              <option key={blog.id} value={blog.id}>
-                {blog.title}
-              </option>
-            ))}
-          </select>
-        </div>
         {selectedBlog && (
           <div className={styles.selectedBlog}>
             <h2>{selectedBlog.title}</h2>
@@ -148,4 +135,4 @@ const ReplyBlog = () => {
   );
 };
 
-export default ReplyBlog;
+export default ReplyPost;
