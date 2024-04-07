@@ -62,7 +62,7 @@ export const EditAccount = () => {
         <Header />
       </div>
       
-      <div className='wrapper'> 
+      <div className='container'> 
         <div className='Account-header'>
           <h1>Update Personal information</h1>   
         </div>
