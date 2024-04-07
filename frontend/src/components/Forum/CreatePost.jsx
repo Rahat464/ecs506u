@@ -1,40 +1,92 @@
-import React, { useContext, useEffect } from 'react';
-import './CreatePost.css';
-import FDMLogo from '../../assets/FDMLogo.png'
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import styles from './CreatePost.module.css'; // Import CSS module
 import Header from '../header/header';
+import axios from 'axios'; // Import axios
 import { UserContext } from '../../context/userContext';
 
+const backendURL = "http://localhost:4000"; // Backend URL
 
-export const CreatePost = () => {
-  document.title = 'Create a Post';
+const BlogPost = () => {
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const { user } = useContext(UserContext); // Assuming user object has an employeeId
 
-  const { user, updateUser } = useContext(UserContext); 
-
-  // used to redirect users without causing a refresh
-  const navigate = useNavigate(); 
-
-  // checks for user authentication and permission to post
-  useEffect(() => {
-    if(!user) {
-      navigate('/Loginform');
-      return
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const postData = {
+        title: title,
+        body: body,
+        date: new Date(),
+        author: user.id // Assuming user object has an employeeId
+      };
+  
+      // Send a POST request to create a new blog post
+      const response = await axios.post(`${backendURL}/api/posts/newblog`, postData);
+  
+      console.log('Blog post created:', response);
+  
+      // Check if response has data property
+      if (response && response.data) {
+        console.log('Response data:', response.data);
+      } else {
+        console.log('Response does not contain data.');
+      }
+  
+      setTitle('');
+      setBody('');
+    } catch (error) {
+      if (error.response && error.response.data) {
+        console.error("Error creating post:", error.response.data);
+      } else {
+        console.error("Error creating post:", error.message);
+      }
+      // Handle error - show a message to the user, etc.
     }
-    if(user.canpost === false) {
-      alert('You do not have permission to post.')
-      navigate('/Home')
-      return
-    }
-  }, [])
+  };
+  
 
+  // Function to clear the title and body fields
+  const handleClear = () => {
+    setTitle('');
+    setBody('');
+  };
+  
   return (
-    <>
-        <Header />
-        <div className='CreatePost'>
-            <h1>this is where you can create a post</h1>
+    <div className={styles.wrapper}>
+      <Header />
+      <div className={styles.shadow}></div>
+      <form onSubmit={handleSubmit}>
+        <h1 className={styles.title}>Create Post</h1>
+        <div className={styles.inputBox}>
+          <input
+            type="text"
+            placeholder='Title'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
         </div>
-    </>
+        <div className={styles.inputBox}>
+          <textarea
+            placeholder='Blog Text'
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className={styles.submitButton}>Submit</button>
+        <button type="button" onClick={handleClear} className={styles.clearButton}>
+          Clear
+        </button>
+
+        <div className={styles.loginLink}>
+          {/* You can add a link to redirect to another page if needed */}
+        </div>
+      </form>
+    </div>
   );
 };
 
-export default CreatePost;
+export default BlogPost;

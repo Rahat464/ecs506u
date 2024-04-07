@@ -14,13 +14,15 @@ import Account from './components/Account/Account.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import Documents from './components/Documents/Documents.jsx'
 import Programs from './components/Programs/Programs.jsx'
-import CreatePost from './components/Forum/CreatePost.jsx'
+import CreatePost from './components/Forum/CreatePost.jsx' 
+import ReplyPost from './components/Forum/replyPost.jsx'
 import EditAccount from './components/Account/EditAccount.jsx'
 import LandingPage from './components/LandingPage/LandingPage.jsx'
 import Admin from './components/Admin/Admin.jsx'
 import SearchResults from './components/SearchResults/SearchResults.jsx'
 import LeaveRequest from './components/LeaveRequest/LeaveRequest.jsx'
 import Issue from './components/Issue/Issue.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -63,6 +65,10 @@ const router = createBrowserRouter([
   {
     path: '/CreatePost',
     element: <CreatePost />,
+  },
+  {
+    path: '/ReplyPost',
+    element: <ReplyPost />,
   },
   {
     path: '/EditAccount',

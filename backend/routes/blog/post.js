@@ -25,56 +25,6 @@ router.get('/', (req, res) => {
 });
 
 
-// get all blog posts by a specific author (from id)
-router.get('/authorId', (req, res) => {
-    
-    const getPosts = async () => {
-
-        const id = req.body.id;
-
-        const query = "Select p.title, p.body, p.date, e.firstname from post p INNER JOIN employees e ON p.author = $1 WHERE e.id = $1;"
-        const values = [id]
-        const data = await db.query(query, values)
-
-        if (data === false) {
-            res.status(400).send("Error getting posts.")
-            console.log("Not Working.")
-        } else {
-            console.log(data.rows)
-            res.status(200).json(data.rows) // response is not working properly
-            console.log("Working.")
-        }
-    }
-
-    getPosts(req)
-});
-
-
-// get posts by date range
-router.get("/date", (req, res) => {
-    
-    const getPostsByDateRange = async () => {
-
-        const startdate = req.body.startdate;
-        const enddate = req.body.enddate;
-
-        const query = "Select p.title, p.body, p.date, e.firstname FROM post p INNER JOIN employees e ON p.author = e.id WHERE p.date >= $1 AND p.date <= $2;"
-        const values = [startdate, enddate]
-        const data = await db.query(query, values)
-
-        if (data === false) {
-            res.status(400).send("Error getting posts.")
-            console.log("Not Working.")
-        } else {
-            console.log(data.rows)
-            res.status(200).json(data.rows) // response is not working properly
-            console.log("Working.")
-        }
-    }
-
-    getPostsByDateRange()
-})
-
 // create a post
 router.post('/newblog', (req, res) => {
         
@@ -103,32 +53,55 @@ router.post('/newblog', (req, res) => {
 }) 
 
 // reply to a post
-router.post('/reply', (req, res) => {
-    
-
-    // not working for some reason -- some issue with the not null constraints
-    const replyToPost = async () => {
-
-        const postid = req.body.postid;
-        const reply = req.body.reply;
-        const author = req.body.author;
-
-        const query = "INSERT INTO postreplies (replyto, body, author) VALUES ($1, $2, $3);"
-        const values = [postid, reply, author]
-        const data = await db.query(query, values)
-
-        if (data === false) {
-            console.log("Not Working.")
-            res.status(400).send("Error replying to post.")
-        } else {
-            res.status(200).send("Reply posted.")
-            console.log("Working.")
-        }
+router.post('/reply', async (req, res) => {
+    // Check if required fields are present in the request body
+    const { postid, body, author } = req.body;
+    if (!postid || !body || !author) {
+      return res.status(400).send("Missing required fields.");
     }
+  
+    try {
+      const query = "INSERT INTO postreplies (replyto, body, author) VALUES ($1, $2, $3);";
+      const values = [postid, body, author];
+      
+      // Execute the database query
+      const data = await db.query(query, values);
+  
+      if (data === false) {
+        console.log("Error replying to post.");
+        return res.status(400).send("Error replying to post.");
+      } else {
+        console.log("Reply posted.");
+        return res.status(200).send("Reply posted.");
+      }
+    } catch (error) {
+      console.error("Error replying to post:", error);
+      return res.status(500).send("Internal Server Error.");
+    }
+  });
+  
 
-    replyToPost()
 
-})
+// get all replies for a specific post
+router.get('/replies/:postid', async (req, res) => {
+    try {
+      const postid = req.params.postid;
+      const query = "SELECT * FROM postreplies WHERE replyto = $1;";
+      const values = [postid];
+      const data = await db.query(query, values);
+      if (data === false) {
+        res.status(400).send("Error getting replies.");
+        console.log("Not Working.");
+      } else {
+        console.log(data.rows);
+        res.status(200).json(data.rows);
+        console.log("Working.");
+      }
+    } catch (error) {
+      console.error("Error fetching replies for post:", error);
+      res.status(500).send("Server error.");
+    }
+  });
 
 
 module.exports = router;
