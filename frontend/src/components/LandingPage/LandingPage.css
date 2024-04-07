@@ -100,3 +100,6 @@ body {
   .Landing .register-login button:hover {
     background-color: #B9B1C3; /* Change button background color on hover */
   }
+.Landing #logout {
+  padding-bottom: 30px;
+}
