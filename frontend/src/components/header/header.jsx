@@ -51,7 +51,7 @@ export const Header = () => {
                     <li><Link to='/Home' className='link'>Home</Link></li>
                     <li className='dropdown'>
                         Forum
-                        <ul className='dropdown-forum'>
+                        <ul className='dropdown-2elements'>
                             <li><Link to='/Forum' className='link'>View Posts</Link></li>
                             <li><Link to='/CreatePost' className='link'>Create a Post</Link></li>
                         </ul>
@@ -68,7 +68,13 @@ export const Header = () => {
                     </div>
                     <div>
                       { user.account_type === 'hr' ? (
-                        <li><Link to='/HR' className='link'> HR Dashboard </Link></li>
+                        <li className='dropdown'>
+                        HR
+                          <ul className='dropdown-2elements'>
+                            <li><Link to='/SendPayslip' className='link'>Send payslip</Link></li>
+                            <li><Link to='/SendPayslip' className='link'>Edit employee account</Link></li>
+                          </ul>
+                        </li>
                       ) : (
                         <></>
                        )}

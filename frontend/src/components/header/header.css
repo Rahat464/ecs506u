@@ -73,7 +73,7 @@
     cursor: default;
 }
 
-.Header .dropdown-forum {
+.Header .dropdown-2elements {
     display: none;
     position: absolute;
     background-color: black;
@@ -96,12 +96,24 @@
     min-height: 201px;
 }
 
-.Header .dropdown-forum li, .Header .dropdown-account li {
+.Header .dropdown-2elements li, .Header .dropdown-account li {
     padding: 12px 16px;
 }
 
-.Header .dropdown:hover .dropdown-forum, .Header .dropdown:hover .dropdown-account {
+.Header .dropdown:hover .dropdown-2elements, .Header .dropdown:hover .dropdown-account {
     display: block;
+}
+
+.Header .dropdown .dropdown-hr {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: -55px;
+    padding-top: 20px;
+    min-height: 115px;
 }
 
 .Header button {
@@ -118,4 +130,3 @@
     color: white;
     cursor: pointer;
 }
-
