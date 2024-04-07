@@ -50,8 +50,12 @@
   padding: 10px; /* Adjust padding to reduce the width */
   cursor: pointer;
   width: 60%;
-  height: 50px;
+  height: 60px;
   font-size: 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-family: "Roboto Slab";
+  font-weight: 500;
 }
 
 .answer {
@@ -60,6 +64,10 @@
   border: 1px solid #e0e0e0;
   width: 60% !important; /* Set the width to match the question box */
   text-align: center; /* Center the text horizontally */
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: none; /* Remove border */
+  font-family: "Roboto Slab";
 }
 
 .Contact-header h1 {
