@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import './SearchResults.css';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import './SendPayslip.css';
 import Header from '../header/header';
 import { UserContext } from '../../context/userContext';
 import { useLocation } from 'react-router-dom';

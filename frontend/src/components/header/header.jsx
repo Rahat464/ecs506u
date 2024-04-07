@@ -72,7 +72,7 @@ export const Header = () => {
                         HR
                           <ul className='dropdown-2elements'>
                             <li><Link to='/SendPayslip' className='link'>Send payslip</Link></li>
-                            <li><Link to='/SendPayslip' className='link'>Edit employee account</Link></li>
+                            <li><Link to='/SelectEmployee' className='link'>Edit employee account</Link></li>
                           </ul>
                         </li>
                       ) : (
@@ -82,7 +82,7 @@ export const Header = () => {
                     <li className='dropdown'>
                         Account
                         <ul className='dropdown-account'>
-                            <li><Link to='/Account' className='link'>Account</Link></li>
+                            <li><Link to='/Account' className='link'>View Account</Link></li>
                             <li><Link to='/EditAccount' className='link'>Edit Account Info</Link></li>
                             <li><Link to='/LeaveRequest' className='link'>Request</Link></li>
                             <li><Link to='/Issue' className='link'> Issue </Link></li>

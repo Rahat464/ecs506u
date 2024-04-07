@@ -83,6 +83,7 @@
     margin-left: -55px;
     padding-top: 20px;
     min-height: 115px;
+    border-radius: 10px;
 }
 .Header .dropdown-account {
     display: none;
@@ -94,6 +95,7 @@
     margin-left: -50px;
     padding-top: 20px;
     min-height: 201px;
+    border-radius: 10px;
 }
 
 .Header .dropdown-2elements li, .Header .dropdown-account li {
@@ -102,18 +104,6 @@
 
 .Header .dropdown:hover .dropdown-2elements, .Header .dropdown:hover .dropdown-account {
     display: block;
-}
-
-.Header .dropdown .dropdown-hr {
-    display: none;
-    position: absolute;
-    background-color: black;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
-    margin-left: -55px;
-    padding-top: 20px;
-    min-height: 115px;
 }
 
 .Header button {

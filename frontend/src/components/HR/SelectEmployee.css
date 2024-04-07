@@ -7,6 +7,7 @@
     gap: 20px;
     font-family: "Roboto Slab";
 }
+
 .SearchResults .title {
     width: 100%;
     color: #2F3C7E;
@@ -16,11 +17,12 @@
     padding: 10px;
     display: flex;
     position: relative;
-    right:22px;
+    right: 22px;
     margin-top: 60px;
 }
 
 .SearchResults .headings {
+    min-width: 500px;
     background-color: #2F3C7E;
     color: #FFF4F5;
     border-radius: 15px;
@@ -46,5 +48,51 @@
     position: relative;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 10px ;
+    padding-bottom: 10px;
+}
+
+.SearchResults .search-bar {
+    display: flex;
+    position: relative;
+}
+
+.SearchResults .search-bar input {
+    width: 100%;
+    height: 45px;
+    text-align: left;
+    font-size: 15px;
+    padding-left: 7px;
+    border-radius: 10px;
+    border: none;
+}
+
+.SearchResults .search-bar button {
+    background: none;
+    border: none;
+    position: relative;
+    right: 45px; 
+    cursor: pointer;
+    margin: 0px;
+    margin-top: 5px;
+}
+
+.SearchResults .search-bar img {
+    height: 20px;
+    position: relative;
+}
+
+.SearchResults .search-bar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #efefef;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0;
+    width: 36px; 
+    height: 36px; 
+}
+
+.SearchResults .search-bar button:hover {
+    background-color: #2F3C7E;
 }
