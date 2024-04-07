@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Forum.module.css'; // Import the CSS file for styling
+import styles from './Forum.module.css';
 import Header from '../header/header';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 
-const ViewBlog = () => {
+const Forum = () => {
   const [blogs, setBlogs] = useState([]);
-  const [sortBy, setSortBy] = useState('author'); // Default sorting by author
+  const [sortBy, setSortBy] = useState('author');
 
   useEffect(() => {
     fetchBlogs();
@@ -15,7 +15,18 @@ const ViewBlog = () => {
   const fetchBlogs = async () => {
     try {
       const response = await axios.get('http://localhost:4000/api/posts');
-      setBlogs(response.data);
+      const blogsData = response.data;
+
+      // Fetch replies for each blog post
+      const blogsWithReplies = await Promise.all(
+        blogsData.map(async (blog) => {
+          const repliesResponse = await axios.get(`http://localhost:4000/api/posts/replies/${blog.id}`);
+          const numReplies = repliesResponse.data.length;
+          return { ...blog, numReplies };
+        })
+      );
+
+      setBlogs(blogsWithReplies);
     } catch (error) {
       console.error('Error fetching blogs:', error);
     }
@@ -46,16 +57,40 @@ const ViewBlog = () => {
     }
   };
 
+  const renderBlogs = () => {
+    return sortedBlogs().map((blog, index) => (
+      <div key={blog.id} className={styles.blog}>
+        <div className={styles.blogHeader}>
+          <h2>{blog.title}</h2>
+          <div className={styles.blogInfo}>
+            <p>
+              <span className={styles.small}>Author:</span> {blog.author}
+            </p>
+            <p>
+              <span className={styles.small}>Date:</span> {new Date(blog.date).toLocaleDateString()}
+            </p>
+            <p>
+              <span className={styles.small}>Replies:</span> {blog.numReplies}
+            </p>
+          </div>
+        </div>
+        <p>{blog.body}</p>
+        <hr className={styles.blogDivider} />
+        {/* Update Link to point to ReplyPost with blog id */}
+        <Link to={`/replyPost/${blog.id}`} className={styles.replyButton}>
+          View Replies
+        </Link>
+      </div>
+    ));
+  };
+
   return (
     <div className={styles.page}>
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.topButtons}>
-          <Link to="/CreatePost" className={styles.newPostLink}>
+          <Link to="/createPost" className={styles.newPostLink}>
             New Post
-          </Link>
-          <Link to="/replyPost" className={styles.replyButton}>
-            Reply to Post
           </Link>
         </div>
         <div className={styles.container}>
@@ -69,27 +104,11 @@ const ViewBlog = () => {
               <option value='alphabetical'>Alphabetical</option>
             </select>
           </div>
-          {sortedBlogs().map((blog, index) => (
-            <div key={blog.id} className={styles.blog}>
-              <div className={styles.blogHeader}>
-                <h2>{blog.title}</h2>
-                <div className={styles.blogInfo}>
-                  <p>
-                    <span className={styles.small}>Author:</span> {blog.author}
-                  </p>
-                  <p>
-                    <span className={styles.small}>Date:</span> {new Date(blog.date).toLocaleDateString()}
-                  </p>
-                </div>
-              </div>
-              <p>{blog.body}</p>
-              <hr className={styles.blogDivider} />
-            </div>
-          ))}
+          {renderBlogs()}
         </div>
       </div>
     </div>
   );
 };
 
-export default ViewBlog;
+export default Forum;

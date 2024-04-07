@@ -141,4 +141,43 @@
       width: 90vw;
     }
   }
+
+  /* Forum.module.css */
+
+.replyButton {
+  background-color: #007bff; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Roboto Slab";
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.replyButton:hover {
+  background-color: #539eee; /* Darker green on hover */
+}
+
+.newPostLink {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Roboto Slab";
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.newPostLink:hover {
+  background-color: #0056b3;
+}
+
   

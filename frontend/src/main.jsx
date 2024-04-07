@@ -67,7 +67,7 @@ const router = createBrowserRouter([
     element: <CreatePost />,
   },
   {
-    path: '/ReplyPost',
+    path: '/replyPost/:blogId',
     element: <ReplyPost />,
   },
   {
