@@ -29,6 +29,7 @@
     font-weight: 800;
     line-height: normal;
     padding-left: 20px;
+    margin: 0;
 }
 .info{
     display: flex;
@@ -54,6 +55,7 @@
     padding-left: 9px;
     position: relative;
     top: 15px;
+    margin: 0;
 
 }
 
@@ -62,7 +64,7 @@
     background-color: white;
     padding: 10px;
     margin-left: 20px;
-    margin-bottom: -5px;
+    margin-bottom: 0;
     border-radius: 15px;
     width: 43vw;
     height: 60px;
