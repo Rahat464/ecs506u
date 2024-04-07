@@ -14,8 +14,50 @@
     border-radius: 15px;
     padding: 10px;
 }
-.Home .navigation {
+.Home .dashboard {
     background-color: #A3ABD0;
     border-radius: 15px;
     padding: 10px;
+    display: grid;
+    grid-template-areas:
+    "nav hours";
+    gap: 10px;
+}
+.Home .navigation {
+    display: grid;
+    grid-area: nav;
+    background-color: #FFF4F5;
+    border-radius: 15px;
+    padding: 10px;
+}
+.Home ul {
+    list-style: none;
+}
+.Home .link {
+    text-decoration: none;
+    color: #2F3C7E;
+}
+.Home .link:hover {
+    color: black;
+}
+.Home .navigation .main {
+    font-size: 20px;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+.Home #x {
+    padding-top: 10px;
+}
+.Home .y {
+    padding-bottom: 10px;
+}
+.Home .hours {
+    display: grid;
+    grid-area: hours;
+    background-color: #FFF4F5;
+    border-radius: 15px;
+    padding: 10px;
+}
+.Home .hours h1 {
+    color: #2F3C7E;
 }

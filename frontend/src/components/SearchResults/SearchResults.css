@@ -16,6 +16,7 @@
     display: flex;
     position: relative;
     right:10px;
+    margin-top: 50px;
 }
 
 .SearchResults .headings {
@@ -44,4 +45,5 @@
     position: relative;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 10px ;
 }
