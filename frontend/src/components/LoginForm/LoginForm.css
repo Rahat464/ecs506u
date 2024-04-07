@@ -55,6 +55,7 @@ body {
   color: #4548A0;
   opacity: 0.7;
   margin-top: 110px;
+  margin-bottom: 0;
 }
 .Login p {
   color: #000;
@@ -81,6 +82,8 @@ body {
   border-bottom: 1.5px solid #345E9D;
   font-size: 18px;
   padding-left: 10px;
+  border-radius: 0;
+  text-align: left;
 }
 
 .Login .input-box input::placeholder{
@@ -124,6 +127,12 @@ body {
   font-size: 16px;
   color: white;
   font-weight: 700;
+  margin: 0;
+}
+.Login button:hover{
+  color: blue;
+  background-color: white;
+  cursor:pointer;
 }
 
 .Login .register-link{
@@ -138,6 +147,7 @@ body {
   color: white;
   font-weight: 700;
   padding: 15px;
+  text-align: center;
 
 }
 
