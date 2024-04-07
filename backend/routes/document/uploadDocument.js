@@ -35,6 +35,24 @@ router.post('/', upload.single('file'), async (req, res) => {
         return res.status(400).send('File too large: File must be less than 8MB');
     }
 
+    // Determine who has access to the document depending on the type of document
+    const type = req.body.type ? req.body.type : "Uncategorized";
+    let giveAccessTo = req.user.id; // By default, the user who uploaded the file will have access
+    let role = null;
+
+    if (type==="progress_report"){ // Give access to manager
+        const managerQuery = `SELECT manager FROM employees WHERE id = $1`;
+        const managerResult = await db.query(managerQuery, [req.user.id]);
+        giveAccessTo = managerResult ? managerResult.rows[0].manager : req.user.id;
+    } else if (type==="payslip"){ // Give access to all HR users
+        // Prevent non-HR users from uploading payslips
+        if (req.user.role !== "hr"){
+            return res.status(401).send('Unauthorized: Only HR users can upload payslips');
+        }
+        role = "hr";
+        giveAccessTo = req.body.employee_id; // Give access to the employee whose payslip is being uploaded
+    }
+
     // Modify filename
     file.originalname = file.originalname.replace(/ /g, "_"); // Replace spaces with underscores
     file.originalname = file.originalname.replace(/[^a-zA-Z0-9.]/g, ""); // Remove special characters
@@ -67,8 +85,13 @@ router.post('/', upload.single('file'), async (req, res) => {
 
         // Save file metadata to database
         const postgresTimestamp = new Date(timestamp).toISOString();
-        const query = `INSERT INTO document (title, owner, uploaddate, url) VALUES ($1, $2, $3, $4)`;
-        await db.query(query, [file.originalname, req.user.id, postgresTimestamp, url[0]])
+        const query = `INSERT INTO document (title, owner, uploaddate, url, type) VALUES ($1, $2, $3, $4, $5) RETURNING id`;
+        const documentResult = await db.query(query, [file.originalname, req.user.id, postgresTimestamp, url[0], type])
+            .catch((error) => res.status(500).send('Error saving file to database: ' + error.message));
+
+        // Give access to additional users
+        const permissionQuery = `INSERT INTO documentaccess (document_id, employee_id, role) VALUES ($1, $2, $3)`;
+        await db.query(permissionQuery, [documentResult.rows[0].id, giveAccessTo, role])
             .then(() => res.status(200).send('File uploaded successfully'))
             .catch((error) => res.status(500).send('Error saving file to database: ' + error.message));
     });
