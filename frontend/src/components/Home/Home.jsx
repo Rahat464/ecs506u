@@ -18,7 +18,7 @@ export const Home = () => {
     if(!user) {
       navigate('/Loginform');
     }
-  })
+  }, [user, navigate]);
 
   return (
     <>
@@ -34,7 +34,10 @@ export const Home = () => {
                     <li className='main'>Forum</li>
                     <ul>
                       <li><Link to='/Forum' className='link'>View Posts</Link></li>
-                      <li><Link to='/CreatePost' className='link'>Create a Post</Link></li>
+                      {/* Render Create a Post link based on user's permission */}
+                      {user && user.canpost ? (
+                        <li><Link to='/CreatePost' className='link'>Create a Post</Link></li>
+                      ) : null}
                     </ul>
                     <li className='main' id='x'><Link to='/Contact' className='link'>Contact</Link></li>
                     <li className='main'><Link to='/Documents' className='link'>Documents</Link></li>
@@ -49,13 +52,13 @@ export const Home = () => {
                     <div>
                       { user && user.account_type === 'hr' ? (
                         <li className='dropdown'>
-                        <p className='main'>HR</p>
+                          <p className='main'>HR</p>
                           <ul className='y'>
                             <li><Link to='/SendPayslip' className='link'>Send payslip</Link></li>
                             <li><Link to='/SendPayslip' className='link'>Edit employee account</Link></li>
                           </ul>
                         </li>
-                     ) : (
+                      ) : (
                         <></>
                        )}
                     </div>

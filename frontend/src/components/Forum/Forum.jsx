@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './Forum.module.css';
 import Header from '../header/header';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../../context/userContext';
 
 const Forum = () => {
   const [blogs, setBlogs] = useState([]);
   const [sortBy, setSortBy] = useState('author');
+  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchBlogs();
@@ -84,15 +87,25 @@ const Forum = () => {
     ));
   };
 
-  return (
-    <div className={styles.page}>
-      <Header />
-      <div className={styles.wrapper}>
+  // Render New Post link based on user permissions
+  const renderNewPostLink = () => {
+    if (user && user.canpost) {
+      return (
         <div className={styles.topButtons}>
           <Link to="/createPost" className={styles.newPostLink}>
             New Post
           </Link>
         </div>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <div className={styles.page}>
+      <Header />
+      <div className={styles.wrapper}>
+        {renderNewPostLink()}
         <div className={styles.container}>
           <div className={styles.welcomeMessage}>
             Welcome to the Forum!
