@@ -11,20 +11,20 @@ export const Account = () => {
   const navigate = useNavigate();
 
   // Function to fetch updated user data
-  const fetchUserData = async () => {
-    try {
-      const response = await fetch('/api/userProfile'); //endpoint fetches user profile
-      if (response.ok) {
-        const userData = await response.json();
-        updateUser(userData); // Update user context or state with the new data
-      } else {
-        throw new Error('Failed to fetch user data');
-      }
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-      // Handle error 
+const fetchUserData = async () => {
+  try {
+    const response = await fetch('/api/userProfile'); // Ensure this endpoint correctly identifies the user (e.g., via session or token)
+    if (response.ok) {
+      const userData = await response.json();
+      updateUser(userData); // Assumes updateUser updates the context with the fetched data
+    } else {
+      throw new Error('Failed to fetch user data');
     }
-  };
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    // Consider handling errors, e.g., by showing a message to the user or redirecting to a login page
+  }
+};
 
   // Fetch user data on component mount
   useEffect(() => {

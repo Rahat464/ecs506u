@@ -6,13 +6,14 @@ import { UserContext } from '../../context/userContext';
 
 export const EditEmployee = () => {
   document.title = 'Edit Employee';
+  console.log(UserContext)
 
   const navigate = useNavigate();
   const location = useLocation(); 
   const { user } = useContext(UserContext);
   
   const employee = location.state?.employee;
-  
+  console.log(employee)
   useEffect(() => {
     if (!user) {
       navigate('/Loginform');
@@ -22,6 +23,7 @@ export const EditEmployee = () => {
     }
   }, [user, employee, navigate]);
 
+  const [id, setId] = useState(employee ? employee.id : "");
   const [firstname, setFirstName] = useState(employee ? employee.firstname : "");
   const [lastname, setLastName] = useState(employee ? employee.lastname : "");
   const [phone, setPhoneNumber] = useState(employee ? employee.phone : "");
@@ -32,18 +34,20 @@ export const EditEmployee = () => {
     e.preventDefault();
 
     const updatedEmployee = {
+      // Include the targetUserId in the request body
+      targetUserId: id, // Assuming 'id' is the ID of the employee you're updating
       firstname,
       lastname,
-      phone,
       email,
-      password, // Might remove later
+      phone,
+      password,
     };
 
-    fetch(`/api/employees/${employee.id}`, { 
+    fetch(`/api/userProfileSelect`, { 
       method: 'PATCH', 
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        Accept: "application/json",
       },
       body: JSON.stringify(updatedEmployee)
     })
@@ -56,7 +60,7 @@ export const EditEmployee = () => {
       }
     })
     .catch(error => console.log('Error updating employee information:', error));
-  };
+};
 
 
   return (
