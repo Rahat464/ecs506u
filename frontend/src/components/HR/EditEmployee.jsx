@@ -65,7 +65,7 @@ export const EditEmployee = () => {
         <Header />
       </div>
       
-      <div className='container'> 
+      <div className='employee-container'> 
         <div className='Account-header'>
           <h1>Update Personal information</h1>   
         </div>

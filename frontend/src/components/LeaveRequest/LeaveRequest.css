@@ -1,4 +1,4 @@
-.wrapper{
+.request-container{
     display: flex;
     flex-direction: column;
     min-height: 85vh;
@@ -7,7 +7,7 @@
     position: relative; /* Ensure positioning context */
 
 }
-.Account-header{
+.request-header{
     background-color: #FFF4F5;
     border-radius: 15px;
     width: 95vw;
@@ -17,9 +17,10 @@
     display: flex; 
     align-items: center; /* Center vertically */
     position: relative; /* Add position relative */
+    justify-content: center;
 }
 
-.Account-header h1{
+.request-header h1{
     color: #4548A0;
     text-align: left;
     font-family: "Roboto Slab";
@@ -28,6 +29,9 @@
     font-weight: 800;
     line-height: normal;
     padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0;
 }
 .info{
     display: flex;
@@ -107,17 +111,16 @@
 
 
 
-.wrapper button {
+.request-container button {
     font-size: 17px;
     width: 50%;
-    margin-right: 120px;
     margin-top: 20px;
-    height: 50px;
+    height: 40px;
     border-radius: 10px;
     border-style: none;
 }
 
-.wrapper button:hover {
+.request-container button:hover {
     color: white;
     background-color: #4548A0;
     cursor:pointer;

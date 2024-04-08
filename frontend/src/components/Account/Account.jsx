@@ -41,8 +41,8 @@ export const Account = () => {
         <Header />
       </div>
 
-      <div className='wrapper'>
-        <div className='Account-header'>
+      <div className='account-container'>
+        <div className='personal-header'>
           <h1>Personal information</h1>
         </div>
 
