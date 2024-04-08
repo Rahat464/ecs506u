@@ -2,7 +2,7 @@
 
 .wrapper {
     background-color: #D9D4E6;
-    width: 90%;
+    width: 95%;
     max-width: 40rem; /* Increased width */
     padding: 30px 40px;
     border: 5px solid #2F3C7E;
@@ -40,6 +40,14 @@
     font-family: "Roboto Slab", sans-serif;
     transition: border-color 0.3s ease;
     color: #345E9D;
+  }
+
+  .inputBox textarea {
+    min-height: 220px; /* Increased height */
+    max-height: 220px; /* Increased height */
+    min-width: 22rem;
+    max-width: 22rem;
+    margin: 5px;
   }
   
   .inputBox input::placeholder,
@@ -85,9 +93,12 @@
     margin-top: 10px; /* Add some space between buttons */
   }
   
-  .submitButton:hover,
-  .clearButton:hover {
+  .submitButton:hover {
     background: #2F3C7E;
+  }
+  .clearButton:hover {
+    background: #c24242;
+    color: white;
   }
   
   .loginLink {

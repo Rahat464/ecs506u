@@ -50,23 +50,43 @@ const Issue = () => {
 
     return ( 
         <>
+            <div>
             <Header />
+            </div>
+        
+            <div className="issue-container">
+            <div className='issue-header'>
+                 <h1>Report Issue</h1>
+            </div>
 
-            <div className="issue-page">
-                <h1>Issue</h1>
-                <p> Submit a Support Request to Admin</p>
+            
+                <div className="issue-info">
                 <form onSubmit={ sendSupportRequest }>
-                    <div className="input-box">
-                        <input type="text" placeholder="Title" required />
+                    
+                <h1 className='head-title'>Submit a Support request to the admin</h1>
+                <h1 className='title'>Title</h1>
+                        <input type="text" 
+                        className="inputTitle"
+                        placeholder="Title" 
+                        required />
+                 
+                <h1 className='title'>Description</h1>
+                        <textarea 
+                        className="inputIssue"
+                        rows="5" 
+                        placeholder="Description" 
+                        required>
+                        </textarea>
+                  
+                    <div>
+                        <input className='input-date' type="date" />
                     </div>
-                    <div className="input-box">
-                        <textarea placeholder="Description" required></textarea>
-                    </div>
-                    <div className="input-box">
-                        <input type="date" />
-                    </div>
+                    <div>
                     <button className="issue-button" type="submit">Submit</button>
+                    </div>
+                   
                 </form>
+                 </div>
             </div>
         </>
      );
