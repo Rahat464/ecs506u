@@ -14,13 +14,13 @@ const Forum = () => {
 
   const fetchBlogs = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/posts');
+      const response = await axios.get('api/posts/');
       const blogsData = response.data;
 
       // Fetch replies for each blog post
       const blogsWithReplies = await Promise.all(
         blogsData.map(async (blog) => {
-          const repliesResponse = await axios.get(`http://localhost:4000/api/posts/replies/${blog.id}`);
+          const repliesResponse = await axios.get(`api/posts/replies/${blog.id}`);
           const numReplies = repliesResponse.data.length;
           return { ...blog, numReplies };
         })
