@@ -30,7 +30,7 @@ export const Home = () => {
             <div className='dashboard'>
                 <div className="navigation">
                   <h2>Navigation</h2>
-                  <ul>
+                  <ul className='content'>
                     <li className='main'>Forum</li>
                     <ul>
                       <li><Link to='/Forum' className='link'>View Posts</Link></li>
@@ -55,7 +55,7 @@ export const Home = () => {
                           <p className='main'>HR</p>
                           <ul className='y'>
                             <li><Link to='/SendPayslip' className='link'>Send payslip</Link></li>
-                            <li><Link to='/SendPayslip' className='link'>Edit employee account</Link></li>
+                            <li><Link to='/SelectEmployee' className='link'>Edit employee account</Link></li>
                           </ul>
                         </li>
                       ) : (
@@ -73,7 +73,15 @@ export const Home = () => {
                 </div>
                 <div className='hours'>
                   <h3>Hours Worked This Week</h3>
-                  <h1>20hrs</h1> {/*placeholder?*/}
+                  <h1>20hrs</h1> {/*placeholder*/}
+                </div>
+                <div className='announce'>
+                  <h3>Company Accouncements</h3>
+                  <p>Company meeting on 11/04</p> {/*placeholder*/}
+                </div>
+                <div className="ticket">
+                  <h3>Ticket Status</h3>
+                  <p>No ticket/s submitted</p> {/*placeholder*/}
                 </div>
             </div>
         </div>
