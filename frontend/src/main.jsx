@@ -22,8 +22,9 @@ import Admin from './components/Admin/Admin.jsx'
 import SearchResults from './components/SearchResults/SearchResults.jsx'
 import LeaveRequest from './components/LeaveRequest/LeaveRequest.jsx'
 import Issue from './components/Issue/Issue.jsx'
-import SendPayslip from './components/HR/SendPayslip.jsx'
 import SelectEmployee from './components/HR/SelectEmployee.jsx'
+import SendPayslip from './components/HR/SendPayslip.jsx'
+import EditEmployee from './components/HR/EditEmployee.jsx'
 
 const router = createBrowserRouter([
   {
@@ -96,12 +97,16 @@ const router = createBrowserRouter([
     element: <Issue />,
   },
   {
+    path: '/SelectEmployee',
+    element: <SelectEmployee />,
+  },
+  {
     path: '/SendPayslip',
     element: <SendPayslip />,
   },
   {
-    path: '/SelectEmployee',
-    element: <SelectEmployee />,
+    path: '/EditEmployee',
+    element: <EditEmployee />,
   }
 ]);
 
