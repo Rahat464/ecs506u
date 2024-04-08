@@ -9,10 +9,11 @@ export const SelectEmployee = () => {
   document.title = 'Select Employee';
 
   const { user, updateUser } = useContext(UserContext);
-  const navigate = useNavigate(); // For navigation after selection, if needed
+  const navigate = useNavigate();
 
   const [searchResults, setSearchResults] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedEmployeeId, setSelectedEmployeeId] = useState(null); // State to hold the selected employee ID
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
@@ -44,9 +45,10 @@ export const SelectEmployee = () => {
   };
 
   const handleSelectEmployee = (employeeId) => {
-    console.log(`Selected employee ID: ${employeeId}`);
-    // Implement your logic upon selecting an employee
-    // For example: navigate(`/employee/${employeeId}`);
+    const selectedEmployee = searchResults.find(emp => emp.id === employeeId);
+    if (selectedEmployee) {
+      navigate('/EditEmployee', { state: { employee: selectedEmployee } });
+    }
   };
 
   const title = !searchQuery ? "All employees:" : `Accounts with '${searchQuery}' in first name`;
@@ -70,7 +72,7 @@ export const SelectEmployee = () => {
           <h2>Name</h2>
           <h2>Email</h2>
           <h2>Role</h2>
-          <h2>Action</h2> {/* Additional header for actions */}
+          <h2>    </h2>
         </div>
         {searchResults && <div className='results'>
           {searchResults.map((result) => (

@@ -14,7 +14,7 @@
     width: 95vw;
     height: 7vw;
     margin-bottom: 20px;
-    margin-top: 40px;
+    margin-top: 10%;
     display: flex; 
     align-items: center; /* Center vertically */
     position: relative; /* Add position relative */
