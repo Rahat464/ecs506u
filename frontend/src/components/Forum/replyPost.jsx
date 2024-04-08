@@ -5,8 +5,6 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 
-const backendURL = "http://localhost:4000";
-
 const ReplyPost = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [replies, setReplies] = useState([]);
@@ -25,7 +23,7 @@ const ReplyPost = () => {
 
   const fetchSelectedBlog = async () => {
     try {
-      const response = await axios.get(`${backendURL}/api/posts/${blogId}`);
+      const response = await axios.get(`/api/posts/${blogId}`);
       setSelectedBlog(response.data);
     } catch (error) {
       console.error('Error fetching selected blog:', error);
@@ -34,7 +32,7 @@ const ReplyPost = () => {
   
   const fetchReplies = async () => {
     try {
-      const response = await axios.get(`${backendURL}/api/posts/replies/${blogId}`);
+      const response = await axios.get(`/api/posts/replies/${blogId}`);
       setReplies(response.data);
     } catch (error) {
       console.error('Error fetching replies:', error);
@@ -60,7 +58,7 @@ const ReplyPost = () => {
         author: user.id,
       };
   
-      const response = await axios.post(`${backendURL}/api/posts/reply`, replyData);
+      const response = await axios.post(`/api/posts/reply`, replyData);
   
       console.log('Reply submitted:', response.data);
   
@@ -83,7 +81,7 @@ const ReplyPost = () => {
         <div className={styles.replyText}>
           <p>{reply.body}</p>
           <hr className={styles.separator} />
-          <p>Author: {reply.author}</p>
+          <p>Author: {reply.firstname} {reply.lastname} </p>
         </div>
       </div>
     ));
@@ -98,7 +96,7 @@ const ReplyPost = () => {
         {selectedBlog && (
           <div className={styles.selectedBlog}>
             <h2>{selectedBlog.title}</h2>
-            <p>Author: {selectedBlog.author}</p>
+            <p>Author: {selectedBlog.firstname} {selectedBlog.lastname} </p>
             <p>Date: {new Date(selectedBlog.date).toLocaleDateString()}</p>
             <hr className={styles.separator} />
             <p>{selectedBlog.body}</p>

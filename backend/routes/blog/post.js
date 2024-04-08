@@ -6,7 +6,7 @@ const db = new (require('../../db'))();
 // get all blog posts from the database
 router.get('/', async (req, res) => {
     try {
-        const query = "SELECT * FROM post";
+        const query = "SELECT p.id, p.title, p.body, p.date, e.firstname, e.lastname FROM post p INNER JOIN employees e ON p.author = e.id;";
         const data = await db.query(query);
 
         if (data === false) {
@@ -82,7 +82,7 @@ router.get('/replies/:postid', async (req, res) => {
         const postid = req.params.postid;
         console.log("Fetching replies for post:", postid);
 
-        const query = "SELECT * FROM postreplies WHERE replyto = $1;";
+        const query = "SELECT pr.*, e.firstname, e.lastname FROM postreplies pr INNER JOIN employees e ON pr.author = e.id WHERE pr.replyto = $1;";
         const values = [postid];
         const data = await db.query(query, values);
 
@@ -105,7 +105,7 @@ router.get('/:postid', async (req, res) => {
         const postid = req.params.postid;
         console.log("Fetching post by ID:", postid);
 
-        const query = "SELECT * FROM post WHERE id = $1;";
+        const query = "SELECT p.*, e.firstname, e.lastname FROM post p INNER JOIN employees e ON p.author = e.id WHERE p.id = $1;";
         const values = [postid];
         const data = await db.query(query, values);
 

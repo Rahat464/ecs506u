@@ -181,7 +181,7 @@ const Admin = () => {
                                 <div className="issue-info">
                                     <p> submitted by {issue.firstname} {issue.lastname} </p>
                                     {/* needs date formating  */}
-                                    <p> {issue.date} </p>
+                                    <p> {new Date(issue.date).toLocaleDateString()} </p>
                                 </div>
                             </div>
                             <button className="solved-btn" onClick={ () => { markSolved(issue) }}>Mark as Solved</button>

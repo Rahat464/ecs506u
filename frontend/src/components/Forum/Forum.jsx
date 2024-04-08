@@ -17,13 +17,13 @@ const Forum = () => {
 
   const fetchBlogs = async () => {
     try {
-      const response = await axios.get('api/posts/');
+      const response = await axios.get('/api/posts/');
       const blogsData = response.data;
 
       // Fetch replies for each blog post
       const blogsWithReplies = await Promise.all(
         blogsData.map(async (blog) => {
-          const repliesResponse = await axios.get(`api/posts/replies/${blog.id}`);
+          const repliesResponse = await axios.get(`/api/posts/replies/${blog.id}`);
           const numReplies = repliesResponse.data.length;
           return { ...blog, numReplies };
         })
@@ -67,7 +67,7 @@ const Forum = () => {
           <h2>{blog.title}</h2>
           <div className={styles.blogInfo}>
             <p>
-              <span className={styles.small}>Author:</span> {blog.author}
+              <span className={styles.small}>Author:</span> {blog.firstname} {blog.lastname}
             </p>
             <p>
               <span className={styles.small}>Date:</span> {new Date(blog.date).toLocaleDateString()}
