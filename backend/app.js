@@ -78,3 +78,6 @@ app.use('/api/document/getList', require('./routes/document/getList'));
 // Network
 app.use('/api/network/join/', require('./routes/network/join'));
 app.use('/api/network/getList', require('./routes/network/getList'));
+
+// HR
+app.use('/api/userProfileSelect', require('./routes/userProfile/userProfileSelect'));
