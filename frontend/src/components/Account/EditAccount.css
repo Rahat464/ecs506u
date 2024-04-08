@@ -17,6 +17,8 @@
     display: flex;
     align-items: center;
     position: relative;
+    justify-content: center;
+ 
 }
 
 .Account-header h1 {
@@ -30,6 +32,8 @@
     padding-top: 2em;
     padding-bottom: 1em;
     padding-left: 20px;
+    margin-bottom: 25px;
+    
 }
 
 .info {
