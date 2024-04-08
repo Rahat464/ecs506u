@@ -79,10 +79,9 @@ app.use('/api/document/getList', require('./routes/document/getList'));
 app.use('/api/network/join/', require('./routes/network/join'));
 app.use('/api/network/getList', require('./routes/network/getList'));
 
-<<<<<<< HEAD
+
 // Program
 app.use('/api/programs/', require('./routes/programs/programs'));
-=======
 // HR
 app.use('/api/userProfileSelect', require('./routes/userProfile/userProfileSelect'));
->>>>>>> 201f3dcf54e63d9a750986bc819f0238297bf830
+
