@@ -73,7 +73,7 @@
     right: 45px; 
     cursor: pointer;
     margin: 0px;
-    margin-top: 5px;
+    margin-top: 4.5px;
 }
 
 .SearchResults .search-bar img {
@@ -95,4 +95,15 @@
 
 .SearchResults .search-bar button:hover {
     background-color: #2F3C7E;
+}
+
+.selectButton {
+    border-radius: 10px;
+    border: transparent;
+    width: 5em;
+}
+
+.selectButton:hover{
+    background-color: #2F3C7E;
+    color: #ffff;
 }

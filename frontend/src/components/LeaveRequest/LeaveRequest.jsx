@@ -70,8 +70,8 @@ const LeaveRequest = () => {
             <Header />
           </div>
     
-          <div className='wrapper'>
-            <div className='Account-header'>
+          <div className='request-container'>
+            <div className='request-header'>
               <h1>Request</h1>
             </div>
     

@@ -74,3 +74,7 @@ app.use('/api/search', require('./routes/search/searchEmployee'));
 // Document
 app.use('/api/document/upload', require('./routes/document/uploadDocument'));
 app.use('/api/document/getList', require('./routes/document/getList'));
+
+// Network
+app.use('/api/network/join/', require('./routes/network/join'));
+app.use('/api/network/getList', require('./routes/network/getList'));
