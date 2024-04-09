@@ -89,9 +89,9 @@ const LeaveRequest = () => {
                     required
                     />
                 </div>
-                
+              <div className='request-input'>
                <h1 className='title'>Description</h1>
-               <div className='request-input'>
+              
                      <textarea 
                         className="RequestInputNotes" 
                         rows="5" 

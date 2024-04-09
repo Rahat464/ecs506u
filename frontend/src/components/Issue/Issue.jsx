@@ -64,12 +64,14 @@ const Issue = () => {
                 <form onSubmit={ sendSupportRequest }>
                     
                 <h1 className='head-title'>Submit a Support request to the admin</h1>
+                <div className="issue-input">
                 <h1 className='title'>Title</h1>
                         <input type="text" 
                         className="inputTitle"
                         placeholder="Title" 
                         required />
-                 
+                </div>
+                <div className="issue-input">
                 <h1 className='title'>Description</h1>
                         <textarea 
                         className="inputIssue"
@@ -77,7 +79,8 @@ const Issue = () => {
                         placeholder="Description" 
                         required>
                         </textarea>
-                  
+                </div>
+
                     <div>
                         <input className='input-date' type="date" />
                     </div>
