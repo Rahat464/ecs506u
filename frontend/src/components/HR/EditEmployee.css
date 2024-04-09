@@ -13,10 +13,11 @@
     width: 95vw;
     min-height: 3rem;
     margin-bottom: 20px;
-    margin-top: 10%;
+    margin-top: 6%;
     display: flex;
     align-items: center;
     position: relative;
+    padding: 15px;
 }
 
 .Account-header h1 {
@@ -27,9 +28,7 @@
     font-style: normal;
     font-weight: 800;
     line-height: normal;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 20px;
+    margin: 0;
 }
 
 .info {
@@ -97,4 +96,9 @@
     border-style: none;
     padding-right: 47px;
     text-align: center;
+}
+
+.save-button:hover {
+    background-color: #4548A0;
+    color: #ffff;
 }

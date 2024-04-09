@@ -130,7 +130,7 @@ body {
   margin: 0;
 }
 .Login button:hover{
-  color: blue;
+  color: #4548A0;
   background-color: white;
   cursor:pointer;
 }
