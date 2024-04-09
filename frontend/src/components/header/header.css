@@ -98,11 +98,24 @@
     border-radius: 10px;
 }
 
-.Header .dropdown-2elements li, .Header .dropdown-account li {
+.Header .dropdown-documents {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: -50px;
+    padding-top: 20px;
+    min-height: 201px;
+    border-radius: 10px;
+}
+
+.Header .dropdown-2elements li, .Header .dropdown-account li, .Header .dropdown-documents li {
     padding: 12px 16px;
 }
 
-.Header .dropdown:hover .dropdown-2elements, .Header .dropdown:hover .dropdown-account {
+.Header .dropdown:hover .dropdown-2elements, .Header .dropdown:hover .dropdown-account, .Header .dropdown:hover .dropdown-documents {
     display: block;
 }
 
