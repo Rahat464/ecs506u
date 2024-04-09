@@ -75,22 +75,25 @@ const LeaveRequest = () => {
               <h1>Request</h1>
             </div>
     
-            <div className='info'>
+            <div className='request-info'>
             <form onSubmit={handleFormSubmit}>
               <div className='personal-info'>
+                <div className='request-input'>
                 <h1 className='title'>Title</h1>
                     <input 
-                    className="inputTitle" 
+                    className="RequestInputTitle" 
                     type="text"
                     placeholder="Title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
                     />
+                </div>
                 
                <h1 className='title'>Description</h1>
+               <div className='request-input'>
                      <textarea 
-                        className="inputNotes" 
+                        className="RequestInputNotes" 
                         rows="5" 
                         type="text"
                         placeholder="Description"
@@ -98,14 +101,17 @@ const LeaveRequest = () => {
                         onChange={(e) => setDesc(e.target.value)}
                         required
                     />
+                </div>
 
                 <h1 className='title'>Select Request Type</h1>
                 {/* Dropdown menu for selecting request type */}
+                <div>
                 <select className="select" value={selectedOption} onChange={handleOptionChange} required>
                     <option value="">Select...</option>
                     <option value="leave-request"> Leave Request</option>
                     <option value="general-ticket">General Ticket</option>
                 </select>
+                </div>
 
                 {selectedOption === 'leave-request' && (
                     <>

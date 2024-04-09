@@ -1,7 +1,7 @@
 .request-container{
     display: flex;
     flex-direction: column;
-    min-height: 85vh;
+    min-height: 90vh;
     align-items: center; /* Center horizontally */
     justify-content: center; /* Center vertically */
     position: relative; /* Ensure positioning context */
@@ -13,7 +13,7 @@
     width: 95vw;
     height: 4vw;
     margin-bottom: 20px;
-    margin-top: 40px;
+    margin-top:20px;
     display: flex; 
     align-items: center; /* Center vertically */
     position: relative; /* Add position relative */
@@ -34,10 +34,11 @@
     padding-bottom: 10px;
     margin: 0;
 }
-.info{
+.request-info{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 95vw;
     
 }
 .personal-info {
@@ -46,9 +47,10 @@
     background-color: #A3ABD0;
     padding: 10px;
     border-radius: 15px;
-    width: 55vw;
+    width: 95vw;
+    height: 40vw;
 }
-.inputTitle {
+.RequestInputTitle {
     width: 90vw;
     height: 3vw;
     background: white;
@@ -56,9 +58,15 @@
     text-align: left; /* Align text to the left */
     font-size: 16px; /* Increase font size */
     padding-left: 10px;
+    align-items: center;
+    margin-left: 20px;
 }
 
-.inputNotes {
+.request-input{
+    align-items:center;
+}
+
+.RequestInputNotes {
     width: 90vw;
     height: 13vw;
     background: white;
@@ -67,6 +75,8 @@
     text-align: left; /* Align text to the left */
     font-size: 16px; /* Increase font size */
     padding: 10px;
+    align-items: center;
+    margin-left: 20px;
 }
 
 .inputTitle input {
@@ -89,6 +99,7 @@
     border-radius: 10px;
     height: 3vw;
     margin-bottom: 15px;
+    margin-left: 20px;
 }
 
 .startDate, .endDate{
@@ -114,11 +125,12 @@
 
 .request-container button {
     font-size: 17px;
-    width: 50%;
+    width: 40%;
     margin-top: 20px;
     height: 40px;
     border-radius: 10px;
     border-style: none;
+    margin-left: 20px;
 }
 
 .request-container button:hover {

@@ -38,7 +38,7 @@
     
 }
 
-.edit-container .info {
+.edit-container .EditAccount-info {
     display: flex;
     flex-direction: column;
     background-color: #A3ABD0;
@@ -96,7 +96,7 @@
     padding-left: 7px;
 }
 
-.edit-container button{
+.edit-container .save-button{
     font-size: 17px;
     margin-left: 40px;
     width: 45%;
@@ -107,7 +107,7 @@
     text-align: center;
 }
 
-.edit-container button:hover{
+.edit-container .save-button:hover{
     color: white;
     background-color: #4548A0;
     cursor:pointer;

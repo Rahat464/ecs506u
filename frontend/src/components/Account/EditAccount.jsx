@@ -96,7 +96,7 @@ export const EditAccount = () => {
           <h1>Update Personal information</h1>   
         </div>
         
-        <div className='info'>
+        <div className='EditAccount-info'>
           <form onSubmit={handleFormSubmit}>
             <div className='input-box'>
               <h1 className='title'>First name</h1>

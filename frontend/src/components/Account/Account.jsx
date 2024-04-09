@@ -58,7 +58,7 @@ const fetchUserData = async () => {
             <div className='email'>{user && <p>{user.email}</p>}</div>
             <div className='edit-button'>
               <Link to='/EditAccount'>
-                <button className='button'>Edit Personal Info</button>
+                <button className='account-button'>Edit Personal Info</button>
               </Link>
             </div>
           </div>
