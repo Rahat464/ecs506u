@@ -79,11 +79,14 @@ app.use('/api/document/getList', require('./routes/document/getList'));
 app.use('/api/network/join/', require('./routes/network/join'));
 app.use('/api/network/getList', require('./routes/network/getList'));
 
-
 // Program
 app.use('/api/programs/', require('./routes/programs/programs'));
+
 // Training
 app.use('/api/training/', require('./routes/training/training'));
+
 // HR
 app.use('/api/userProfileSelect', require('./routes/userProfile/userProfileSelect'));
 
+// Other
+app.use('/api/idToName', require('./routes/other/idToName'));
