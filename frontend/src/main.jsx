@@ -13,6 +13,8 @@ import Forum from './components/Forum/Forum.jsx'
 import Account from './components/Account/Account.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import Documents from './components/Documents/Documents.jsx'
+import FileUploadForm from './components/Documents/FileUploadForm.jsx'
+import ProgressReport from './components/Documents/ProgressReport.jsx'
 import Programs from './components/Programs/Programs.jsx'
 import CreatePost from './components/Forum/CreatePost.jsx' 
 import ReplyPost from './components/Forum/replyPost.jsx'
@@ -23,10 +25,8 @@ import SearchResults from './components/SearchResults/SearchResults.jsx'
 import LeaveRequest from './components/LeaveRequest/LeaveRequest.jsx'
 import Issue from './components/Issue/Issue.jsx'
 import SelectEmployee from './components/HR/SelectEmployee.jsx'
-import SelectEmployeePayslip from './components/HR/SelectEmployeePayslip.jsx'
 import SendPayslip from './components/HR/SendPayslip.jsx'
 import EditEmployee from './components/HR/EditEmployee.jsx'
-import Training from './components/Training/Training.jsx'
 
 const router = createBrowserRouter([
   {
@@ -61,6 +61,14 @@ const router = createBrowserRouter([
   {
     path: '/Documents',
     element: <Documents />,
+  },
+  {
+    path: '/FileUploadForm',
+    element: <FileUploadForm />,
+  },
+  {
+    path: '/ProgressReport',
+    element: <ProgressReport />,
   },
   {
     path: '/Programs',
@@ -103,20 +111,12 @@ const router = createBrowserRouter([
     element: <SelectEmployee />,
   },
   {
-    path: '/SelectEmployeePayslip',
-    element: <SelectEmployeePayslip />,
-  },
-  {
     path: '/SendPayslip',
     element: <SendPayslip />,
   },
   {
     path: '/EditEmployee',
     element: <EditEmployee />,
-  },
-  {
-    path: '/Training',
-    element: <Training />,
   }
 ]);
 
