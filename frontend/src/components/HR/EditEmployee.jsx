@@ -115,7 +115,7 @@ export const EditEmployee = () => {
                 required
               />
             </div>
-            <div className='input-box'>
+            <div className='input-box-employee'>
               <h1 className='title'>Password</h1>
               <input
                 type="password"

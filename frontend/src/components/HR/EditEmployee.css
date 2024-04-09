@@ -102,10 +102,10 @@
     color: #ffff;
 }
 
-.input-box {
+.input-box-employee {
     min-width: 30em;
 }
 
-.input-box h1{
+.input-box-employee h1{
     min-width: 7em;
 }

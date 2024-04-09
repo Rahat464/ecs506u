@@ -32,14 +32,14 @@ export const SendPayslip = () => {
         formData.append("employeeId", employee.id);
 
         try {
-            const response = await fetch('/api/uploadDocument', {
+            const response = await fetch('/api/document/upload', {
                 method: 'POST',
                 body: formData,
             });
 
             if (response.ok) {
                 alert("Payslip sent successfully!");
-                navigate('/SelectEmployee2'); 
+                navigate('/SelectEmployeePayslip'); 
             } else {
                 alert("Failed to send payslip.");
             }
