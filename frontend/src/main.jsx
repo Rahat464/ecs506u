@@ -14,7 +14,6 @@ import Account from './components/Account/Account.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import Documents from './components/Documents/Documents.jsx'
 import FileUploadForm from './components/Documents/FileUploadForm.jsx'
-import ProgressReport from './components/Documents/ProgressReport.jsx'
 import Programs from './components/Programs/Programs.jsx'
 import CreatePost from './components/Forum/CreatePost.jsx' 
 import ReplyPost from './components/Forum/replyPost.jsx'
@@ -65,10 +64,6 @@ const router = createBrowserRouter([
   {
     path: '/FileUploadForm',
     element: <FileUploadForm />,
-  },
-  {
-    path: '/ProgressReport',
-    element: <ProgressReport />,
   },
   {
     path: '/Programs',
