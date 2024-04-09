@@ -34,8 +34,7 @@ export const EditEmployee = () => {
     e.preventDefault();
 
     const updatedEmployee = {
-      // Include the targetUserId in the request body
-      targetUserId: id, // Assuming 'id' is the ID of the employee you're updating
+      targetUserId: id, // ID of the employee updating
       firstname,
       lastname,
       email,

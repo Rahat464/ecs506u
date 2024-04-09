@@ -61,7 +61,9 @@ export const Header = () => {
               <li className='dropdown'>
                 HR
                 <ul className='dropdown-2elements'>
-                  <li><Link to='/SendPayslip' className='link'>Send payslip</Link></li>
+                  {/* select --> send payslip */}
+                  <li><Link to='/SelectEmployeePayslip' className='link'>Send payslip</Link></li> 
+                  {/* select --> edit account */}
                   <li><Link to='/SelectEmployee' className='link'>Edit employee account</Link></li>
                 </ul>
               </li>

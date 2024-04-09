@@ -54,6 +54,7 @@
 .SearchResults .search-bar {
     display: flex;
     position: relative;
+    width: 105%;
 }
 
 .SearchResults .search-bar input {
