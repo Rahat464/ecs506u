@@ -16,6 +16,7 @@ export const EditAccount = () => {
   const [phone, setPhoneNumber] = useState(user ? user.phone : "");
   const [email, setEmail] = useState(user ? user.email : "");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   // Redirect if user is not logged in
   useEffect(() => {
@@ -27,13 +28,28 @@ export const EditAccount = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    // Validate the email using regex
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!email.match(emailRegex)) {
-      document.getElementById('invalid-credentials').innerText = 'Invalid Email. Please try again.';
-      document.querySelector('input[type="email"]').style.border = '1px solid red';
-      return;
+     // Validate the email using regex
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  if (!email.match(emailRegex)) {
+    document.getElementById('invalid-credentials').innerText = 'Invalid Email. Please try again.';
+    const emailInput = document.querySelector('input[type="email"]');
+    if (emailInput) {
+      emailInput.style.border = '1px solid red';
     }
+    return;
+  }
+
+  // Validate the password confirmation
+  if (password !== confirmPassword) {
+    document.getElementById('password-mismatch').innerText = 'Passwords do not match.';
+    const passwordInput = document.querySelector('input[name="password"]');
+    const confirmPasswordInput = document.querySelector('input[name="confirmPassword"]');
+    if (passwordInput && confirmPasswordInput) {
+      passwordInput.style.border = '1px solid red';
+      confirmPasswordInput.style.border = '1px solid red';
+    }
+    return;
+  }
 
     const updatedUser = {
       firstname: firstname,
@@ -55,7 +71,7 @@ export const EditAccount = () => {
       if (response.ok) {
         console.log('Updated Successfully');
         navigate('/Account');
-      } else if (res.status === 401) { // invalid credentials
+      } else if (response.status === 401) { // invalid credentials
         document.getElementById('invalid-credentials').innerText = 'Invalid Credentials. Please try again.';
         document.querySelector('input[type="email"]').style.border = '1px solid red';
         throw new Error('Invalid Credentials. Please try again.');
@@ -131,9 +147,22 @@ export const EditAccount = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+
+            <div className='input-box'>
+              <h1 className='title'>Confirm Password</h1>
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder='Confirm Password'
+                value={confirmPassword || ""}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+
             <button className="save-button" type="submit">Save Changes</button>
           </form>
           <p id="invalid-credentials"></p>
+          <p id="password-mismatch"></p>
         </div>
       </div>
     </>

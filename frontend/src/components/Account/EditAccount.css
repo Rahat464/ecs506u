@@ -38,7 +38,7 @@
     
 }
 
-.edit-container info {
+.edit-container .info {
     display: flex;
     flex-direction: column;
     background-color: #A3ABD0;
@@ -51,10 +51,10 @@
     position: relative; 
 }
 
-.edit-container title {
-    font-size: 22px;
+.edit-container .title {
+    font-size: 23px;
     font-family: "Roboto Slab";
-    font-weight: 500;
+    font-weight: 600;
     line-height: normal;
     text-align: left;
     margin-left: 22px;
@@ -62,7 +62,7 @@
     top: 5px;
 }
 
-.input-box {
+.edit-container .input-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -72,25 +72,26 @@
     text-align: left;
 }
 
-.input-box h1 {
+.edit-container .input-box h1 {
     height: 70%;
+    width: 40vw;
 }
 
-.input-box input {
+.edit-container .input-box input {
     /* flex: 1; */
-    width: 70%;
+    width: 60vw;
     height: 80%;
     background: white;
     border: none;
     outline: none;
     border: 1.5px solid #345E9D;
     font-size: 18px;
-    padding-left: 10px;
+    padding-left: 20px;
     border-radius: 15px;
     
 }
 
-.input-box input::placeholder {
+.edit-container input::placeholder {
     color: #A3ABD0;
     padding-left: 7px;
 }
@@ -113,6 +114,15 @@
 }
 
 #invalid-credentials {
+    color: black;
+    font-size: 100%;
+    text-align: center;
+    margin-top: 10px;
+    width: 50%;
+    
+  }
+
+  #password-mismatch {
     color: black;
     font-size: 100%;
     text-align: center;
