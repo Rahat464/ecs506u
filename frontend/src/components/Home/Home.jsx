@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './Home.css';
 import FDMLogo from '../../assets/FDMLogo.png'
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,16 +8,32 @@ import { UserContext } from '../../context/userContext';
 
 export const Home = () => {
   document.title = 'Home';
-  const { user, updateUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
+  const [ticket, updateTicket] = useState(null);
 
   // navigate used to redirect users without causing a refresh
   const navigate = useNavigate();
+
+    async function getTickets() {
+        console.log('Getting tickets');
+        const response = await fetch('/api/ticket/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+        });
+        const data = await response.json();
+        updateTicket(data);
+    }
 
   // checks for user existence
   useEffect(() => {
     if(!user) {
       navigate('/Loginform');
     }
+    getTickets().catch(console.error);
+
   }, [user, navigate]);
 
   return (
@@ -81,7 +97,19 @@ export const Home = () => {
                 </div>
                 <div className="ticket">
                   <h3>Ticket Status</h3>
-                  <p>No ticket/s submitted</p> {/*placeholder*/}
+                    <UserContext.Provider value={{ ticket, getTickets }}>
+                        {
+                            ticket && ticket.map((ticket) => {
+                                return (
+                                <div key={ticket.id}>
+                                    <p>{ticket.title + " "}
+                                        ({ticket.status ? 'Closed' : 'Open'})
+                                    </p>
+                                </div>
+                                )
+                            })
+                        }
+                    </UserContext.Provider>
                 </div>
             </div>
         </div>
