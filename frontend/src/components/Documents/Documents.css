@@ -79,7 +79,7 @@
 }
 
 .document-item button:hover {
-    color: white;
+    color: #FFFFFF;
     background-color: #4548A0;
     cursor: pointer;
 }
@@ -107,7 +107,7 @@
     border-radius: 10px;
     border-style: none;
     background-color: #4548A0;
-    color: white;
+    color: #FFFFFF;
     cursor: pointer;
 }
 
