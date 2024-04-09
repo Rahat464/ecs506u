@@ -26,6 +26,15 @@ export const EditAccount = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
+    // Validate the email using regex
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!email.match(emailRegex)) {
+      document.getElementById('invalid-credentials').innerText = 'Invalid Email. Please try again.';
+      document.querySelector('input[type="email"]').style.border = '1px solid red';
+      return;
+    }
+
     const updatedUser = {
       firstname: firstname,
       lastname: lastname,
@@ -46,7 +55,11 @@ export const EditAccount = () => {
       if (response.ok) {
         console.log('Updated Successfully');
         navigate('/Account');
-      } else {
+      } else if (res.status === 401) { // invalid credentials
+        document.getElementById('invalid-credentials').innerText = 'Invalid Credentials. Please try again.';
+        document.querySelector('input[type="email"]').style.border = '1px solid red';
+        throw new Error('Invalid Credentials. Please try again.');
+      }else {
         throw new Error('Failed to update user information');
       }
     })
@@ -120,6 +133,7 @@ export const EditAccount = () => {
             </div>
             <button className="save-button" type="submit">Save Changes</button>
           </form>
+          <p id="invalid-credentials"></p>
         </div>
       </div>
     </>
