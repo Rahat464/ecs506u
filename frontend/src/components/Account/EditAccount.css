@@ -111,3 +111,12 @@
     background-color: #4548A0;
     cursor:pointer;
 }
+
+#invalid-credentials {
+    color: black;
+    font-size: 100%;
+    text-align: center;
+    margin-top: 10px;
+    width: 50%;
+    
+  }
