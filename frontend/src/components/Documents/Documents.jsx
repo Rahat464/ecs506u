@@ -77,7 +77,7 @@ const Document = () => {
         </div>
       </div>
       <div className='edit-button'>
-        <Link to='/UploadDocuments'>
+        <Link to='/FileUploadForm'>
           <button className='button'>Upload Documents</button>
         </Link>
       </div>
