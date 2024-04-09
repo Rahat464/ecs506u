@@ -23,6 +23,9 @@ export const Home = () => {
                 'Accept': 'application/json',
             },
         });
+        if (!response.ok) {
+            updateTicket([])
+        }
         const data = await response.json();
         updateTicket(data);
     }
@@ -99,7 +102,7 @@ export const Home = () => {
                   <h3>Ticket Status</h3>
                     <UserContext.Provider value={{ ticket, getTickets }}>
                         {
-                            ticket && ticket.map((ticket) => {
+                            ticket && Array.isArray(ticket) && ticket.map((ticket) => {
                                 return (
                                 <div key={ticket.id}>
                                     <p>{ticket.title + " "}
