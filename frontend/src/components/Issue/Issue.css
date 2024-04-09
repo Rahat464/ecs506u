@@ -12,12 +12,12 @@
     border-radius: 15px;
     width: 95vw;
     height: 4vw;
-    margin-bottom: 20px;
     margin-top: 40px;
     display: flex;
     align-items: center;
     position: relative;
     justify-content: center;
+    padding: 25px;
 }
 
 .issue-header h1 {

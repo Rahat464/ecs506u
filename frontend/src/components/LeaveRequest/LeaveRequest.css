@@ -18,6 +18,7 @@
     align-items: center; /* Center vertically */
     position: relative; /* Add position relative */
     justify-content: center;
+    padding: 25px;
 }
 
 .request-header h1{

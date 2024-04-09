@@ -6,7 +6,7 @@
     justify-content: center; /* Center vertically */
     position: relative; /* Ensure positioning context */
     margin: 0;
-
+    margin-top: 2em;
 }
 .personal-header{
     background-color: #FFF4F5;
@@ -19,6 +19,7 @@
     align-items: center; /* Center vertically */
     position: relative; /* Add position relative */
     justify-content: center;
+    padding: 25px;
 }
 
 .personal-header h1{
@@ -31,8 +32,6 @@
     line-height: normal;
     padding-left: 20px;
     margin: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 .info{
     display: flex;
