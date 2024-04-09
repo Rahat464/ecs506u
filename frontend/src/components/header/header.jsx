@@ -52,7 +52,13 @@ export const Header = () => {
               </ul>
             </li>
             <li><Link to='/Contact' className='link'>Contact</Link></li>
-            <li><Link to='/Documents' className='link'>Documents</Link></li>
+            <li className='dropdown'>
+              Documents
+              <ul className='dropdown-documents'>
+                <li><Link to='/Documents' className='link'>View Documents</Link></li>
+                <li><Link to='/FileUploadForm' className='link'>Upload Document</Link></li>
+              </ul>
+            </li>
             <li><Link to='/Programs' className='link'>Programs</Link></li>
             <li><Link to='/Training' className='link'>Training</Link></li>
             {user.account_type === 'admin' ? (
