@@ -54,6 +54,7 @@ export const Header = () => {
             <li><Link to='/Contact' className='link'>Contact</Link></li>
             <li><Link to='/Documents' className='link'>Documents</Link></li>
             <li><Link to='/Programs' className='link'>Programs</Link></li>
+            <li><Link to='/Training' className='link'>Training</Link></li>
             {user.account_type === 'admin' ? (
               <li><Link to='/Admin' className='link'>Admin Dashboard</Link></li>
             ) : null}

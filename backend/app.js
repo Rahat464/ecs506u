@@ -82,6 +82,8 @@ app.use('/api/network/getList', require('./routes/network/getList'));
 
 // Program
 app.use('/api/programs/', require('./routes/programs/programs'));
+// Training
+app.use('/api/training/', require('./routes/training/training'));
 // HR
 app.use('/api/userProfileSelect', require('./routes/userProfile/userProfileSelect'));
 
