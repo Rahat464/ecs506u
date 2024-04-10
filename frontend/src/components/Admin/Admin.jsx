@@ -160,19 +160,6 @@ const Admin = () => {
         <div className="admin-page">
             
             <div className="issue-section">
-                {/* simple search for all, solved or unsolved */}
-                <div className="issue-search">
-                    <div>
-                    <input type="text" placeholder="Search Issues" />
-                    <select name="" id="">
-                        <option value=""> All </option>
-                        <option value=""> Solved </option>
-                        <option value=""> Unsolved </option>
-                    </select>
-                    </div>
-                    <button>Search</button>
-                </div>
-
                 {issues && 
                 <div className="dashboard">
                     {issues.map(issue => (
@@ -190,8 +177,6 @@ const Admin = () => {
                         </div>
                     ))}
                 </div>}
-
-                <button onClick={ () => { console.log(solved)} }> Show solved </button>
             </div>
             
             <div className="permissions-area">

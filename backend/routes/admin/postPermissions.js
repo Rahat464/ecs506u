@@ -53,7 +53,7 @@ router.get('/supportRequests', (req, res) => {
     const getSupportRequests = async () => {
         
         // INNER JOIN to include the author name
-        const query = "SELECT i.*, e.firstname, e.lastname FROM issue i INNER JOIN employees e ON i.author = e.id ORDER BY i.date DESC;                                                      "
+        const query = "SELECT i.*, e.firstname, e.lastname FROM issue i INNER JOIN employees e ON i.author = e.id WHERE i.solved = 'false' ORDER BY i.date DESC;                                                      "
         const data = await db.query(query)
 
         if (data === false) {
