@@ -68,6 +68,30 @@ router.get('/supportRequests', (req, res) => {
 })
 
 
+// for now I am quering "issues" - but maybe supportRequests Table is needed.
+router.post('/supportRequests/personal', (req, res) => {
+
+    const getSupportRequests = async () => {
+        
+        const userId = req.body.userId
+
+        // INNER JOIN to include the author name
+        const query = "SELECT i.*, e.firstname, e.lastname FROM issue i INNER JOIN employees e ON i.author = e.id WHERE e.id = $1 ORDER BY i.date DESC;";
+        const data = await db.query(query, [userId])                                         
+
+        if (data === false) {
+            console.log("Not Working.")
+        } else {
+            res.json(data.rows)
+            console.log("Working.")
+        }
+    }
+
+    getSupportRequests(req, res)
+})
+
+
+
 // end point and function for marking an issue solved or unsolved.
 router.post('/markIssueSolved', (req, res) => {
     const markSolved = async () => {

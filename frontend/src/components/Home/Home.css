@@ -30,8 +30,14 @@
     "nav ticket"
     "nav hours";
     grid-template-columns: 1fr 2fr;
-    gap: 10px;
+    gap: 25px;
 }
+
+.Home .dashboard * {
+    margin: 10px;
+}
+
+
 .Home .navigation {
     display: grid;
     grid-area: nav;

@@ -8,8 +8,10 @@ import { UserContext } from '../../context/userContext';
 
 export const Home = () => {
   document.title = 'Home';
-  const { user } = useContext(UserContext);
+  const { user, updateUser } = useContext(UserContext);
   const [ticket, updateTicket] = useState(null);
+
+  const [issues, setIssues] = useState([]);
 
   // navigate used to redirect users without causing a refresh
   const navigate = useNavigate();
@@ -23,6 +25,9 @@ export const Home = () => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
+            // body: JSON.stringify({
+            //     userId: user.id
+            // })
         });
         if (!response.ok) {
             updateTicket([])
@@ -31,12 +36,36 @@ export const Home = () => {
         updateTicket(data);
     }
 
+    const getIssues = () => {
+      console.log('Getting issues');
+      fetch('/api/admin/supportRequests/personal', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+              userId: user.id
+          })
+      }).then(response => {
+          if (!response.ok) {
+              setIssues([])
+          }
+          return response.json();
+      
+      }).then(data => {
+          setIssues(data);
+      }).catch(console.error);
+      
+  }
+
   // checks for user existence
   useEffect(() => {
     if(!user) {
       navigate('/Loginform');
     }
     getTickets().catch(console.error);
+    getIssues()
 
   }, [user, navigate]);
 
@@ -91,33 +120,52 @@ export const Home = () => {
                     </ul>
                   </ul>
                 </div>
-                <div className='hours'>
-                  <h3>Hours Worked This Week</h3>
-                    <h1>{(user && user.hoursworked) ? (user.hoursworked + " hrs") : "Unknown"}</h1>
-                </div>
-                <div className='announce'>
-                <h3>Company Accouncements</h3>
-                  <p>Company meeting on 11/04</p> {/*placeholder*/}
-                </div>
-                <div className="ticket">
-                  <h3>Ticket Status</h3>
-                    <UserContext.Provider value={{ ticket, getTickets }}>
-                        {
-                            ticket && Array.isArray(ticket) && ticket.length > 0 ? (
-                                ticket.map((ticket) => {
-                                    return (
-                                        <div key={ticket.id}>
-                                            <p>{ticket.title + " "}
-                                                ({ticket.status ? 'Closed' : 'Open'})
-                                            </p>
-                                        </div>
-                                    )
-                                })
-                            ) : (
-                                <p>No submitted tickets</p>
-                            )
-                        }
-                    </UserContext.Provider>
+                <div className='information-area'>
+                  
+                  <div className='announce'>
+                  <h3>Company Accouncements</h3>
+                    <p>Company meeting on 11/04</p> {/*placeholder*/}
+                  </div>
+                  <div className="ticket">
+                    <h3>Ticket Status</h3>
+                      <UserContext.Provider value={{ ticket, getTickets }}>
+                          {
+                              ticket && Array.isArray(ticket) && ticket.length > 0 ? (
+                                  ticket.map((ticket) => {
+                                      return (
+                                          <div key={ticket.id}>
+                                              <p>{ticket.title + " "}
+                                                  ({ticket.status ? 'Closed' : 'Open'})
+                                              </p>
+                                          </div>
+                                      )
+                                  })
+                              ) : (
+                                  <p>No submitted tickets</p>
+                              )
+                          }
+                      </UserContext.Provider>
+                  </div>
+                  <div className="ticket">
+                    <h3> Issues Status</h3>
+                    {issues && 
+                      <div>
+                        {issues.map((issue) => {
+                          return (
+                            <div key={issue.id}>
+                              <p>{issue.title + " "}
+                                ({issue.status ? 'Closed' : 'Open'})
+                              </p>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    }
+                  </div>
+                  <div className='hours'>
+                    <h3>Hours Worked This Week</h3>
+                      <h1>{(user && user.hoursworked) ? (user.hoursworked + " hrs") : "Unknown"}</h1>
+                  </div>
                 </div>
             </div>
         </div>
