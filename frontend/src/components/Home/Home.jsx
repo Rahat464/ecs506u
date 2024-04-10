@@ -103,15 +103,19 @@ export const Home = () => {
                   <h3>Ticket Status</h3>
                     <UserContext.Provider value={{ ticket, getTickets }}>
                         {
-                            ticket && Array.isArray(ticket) && ticket.map((ticket) => {
-                                return (
-                                <div key={ticket.id}>
-                                    <p>{ticket.title + " "}
-                                        ({ticket.status ? 'Closed' : 'Open'})
-                                    </p>
-                                </div>
-                                )
-                            })
+                            ticket && Array.isArray(ticket) && ticket.length > 0 ? (
+                                ticket.map((ticket) => {
+                                    return (
+                                        <div key={ticket.id}>
+                                            <p>{ticket.title + " "}
+                                                ({ticket.status ? 'Closed' : 'Open'})
+                                            </p>
+                                        </div>
+                                    )
+                                })
+                            ) : (
+                                <p>No submitted tickets</p>
+                            )
                         }
                     </UserContext.Provider>
                 </div>
