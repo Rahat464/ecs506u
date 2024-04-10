@@ -87,7 +87,7 @@ export const Training = () => {
   }, [user])
 
 
-  const enrol = async (trainingId) => {
+  const enrol = async (training) => {
     fetch('/api/training/enrol', {
       method: 'POST',
       credentials: 'include',
@@ -96,7 +96,7 @@ export const Training = () => {
       },
       body: JSON.stringify({
         userId: user.id,
-        trainingId: trainingId
+        trainingId: training.id
       })
     }).then( response => {
       if (response.status === 401) {
@@ -105,14 +105,9 @@ export const Training = () => {
       }
 
       if(response.ok) {
+        setPersonalPrograms([...personalPrograms, training]);
         return response.json()
       }
-    }).then(data => {
-      if (data) {
-        console.log(data)
-        setPersonalPrograms([...personalPrograms, data]);
-      }
-      return;
     }).catch(err => {
       console.error('Error Enrolling in training', err)
     });
@@ -136,14 +131,9 @@ export const Training = () => {
       }
 
       if(response.ok) {
+        setPersonalPrograms(personalPrograms.filter(program => program.id !== trainingId));
         return response.json()
       }
-    }).then(data => {
-      if (data) {
-        console.log(data)
-        setPersonalPrograms([...personalPrograms, data]);
-      }
-      return;
     }).catch(err => {
       console.error('Error Unenrolling in training', err)
     });
@@ -164,7 +154,7 @@ export const Training = () => {
                   <p className=''>{program.description}</p>
                   <div className='btn-group'>
                     <Link to={`/${program.link}`}>View Training </Link>
-                    <button className='btn' onClick={() => enrol(program.id)}> Enrol </button>
+                    <button className='btn' onClick={() => enrol(program)}> Enrol </button>
                   </div>
                 </div>
               ))}

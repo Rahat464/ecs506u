@@ -11,6 +11,7 @@ export const Home = () => {
   const { user, updateUser } = useContext(UserContext);
   const [ticket, updateTicket] = useState(null);
 
+  const [hours, setHours] = useState(0);
   const [issues, setIssues] = useState([]);
 
   // navigate used to redirect users without causing a refresh
@@ -67,7 +68,31 @@ export const Home = () => {
     getTickets().catch(console.error);
     getIssues()
 
-  }, [user, navigate]);
+  }, [navigate]);
+
+
+  const logHours = (e) => {
+
+    e.preventDefault();
+
+    fetch('/api/loghours', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        userId: user.id,
+        hours: hours
+      })
+    }).then(response => {
+      if (response.ok) {
+        console.log('Hours logged');
+      }
+    }).catch(console.error)
+  }
+
+
 
   return (
     <>
@@ -148,23 +173,37 @@ export const Home = () => {
                   </div>
                   <div className="ticket">
                     <h3> Issues Status</h3>
-                    {issues && 
+                    {issues && issues.length > 0 ? ( 
                       <div>
                         {issues.map((issue) => {
                           return (
                             <div key={issue.id}>
-                              <p>{issue.title + " "}
+                              <p className='issue-status'>{issue.title + " "}
                                 ({issue.status ? 'Closed' : 'Open'})
                               </p>
                             </div>
                           )
                         })}
                       </div>
-                    }
+                   ) : (
+                    <div> No issues reported</div>
+                   )}
                   </div>
                   <div className='hours'>
                     <h3>Hours Worked This Week</h3>
-                      <h1>{(user && user.hoursworked) ? (user.hoursworked + " hrs") : "Unknown"}</h1>
+                      <h1>{(user) ? (user.hoursworked + " hrs") : "Hours not logged."}</h1>
+                      <form onSubmit={ (e) => {logHours(e)}}>
+                        <h3> Log Hours </h3>
+                        <label className='hours-label' htmlFor="hours"> Hours: </label>
+                        <input  
+                          name='hours' 
+                          type="number" 
+                          value={hours}
+                          onChange={(e) => {setHours(e.target.value)}}
+                          required
+                        />
+                        <button className='log-btn' type="submit"> Log </button>
+                      </form>
                   </div>
                 </div>
             </div>

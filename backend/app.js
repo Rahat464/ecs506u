@@ -59,6 +59,8 @@ app.use('/api/posts', require('./routes/blog/post'));
 // User Profile
 app.use('/api/userProfile', require('./routes/userProfile/userProfile'));
 
+app.use('/api/loghours/', require('./routes/userProfile/hours'));
+
 // FAQ
 app.use('/api/faq', require('./routes/faq/faq'));
 
