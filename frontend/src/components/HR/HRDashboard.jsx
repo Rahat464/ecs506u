@@ -58,8 +58,8 @@ const HRDashboard = () => {
     // Accept/Reject leave requests
     const updateLeaveRequestStatus = async (requestId, status) => {
         try {
-            fetch(`/api/ticket/updateLeaveStatus/`, {
-                method: 'PUT',
+            fetch(`/api/ticket/updateLeaveRequest`, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json'
