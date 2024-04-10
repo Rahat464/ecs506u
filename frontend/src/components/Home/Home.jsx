@@ -171,7 +171,7 @@ export const Home = () => {
                           }
                       </UserContext.Provider>
                   </div>
-                  <div className="ticket">
+                  <div className="issues">
                     <h3> Issues Status</h3>
                     {issues && issues.length > 0 ? ( 
                       <div>
