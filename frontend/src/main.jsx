@@ -26,6 +26,7 @@ import Issue from './components/Issue/Issue.jsx'
 import SelectEmployee from './components/HR/SelectEmployee.jsx'
 import SendPayslip from './components/HR/SendPayslip.jsx'
 import EditEmployee from './components/HR/EditEmployee.jsx'
+import Training from './components/Training/Training.jsx'
 
 const router = createBrowserRouter([
   {
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
   {
     path: '/Issue',
     element: <Issue />,
+  },
+  {
+    path: '/Training',
+    element: <Training />
   },
   {
     path: '/SelectEmployee',
