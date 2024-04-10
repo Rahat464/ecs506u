@@ -34,7 +34,7 @@
     margin: 0;
 }
 
-.issue-info {
+.issue-container .issue-info {
     display: flex;
     flex-direction: column;
     background-color: #A3ABD0;

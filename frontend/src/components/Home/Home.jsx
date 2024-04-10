@@ -14,6 +14,7 @@ export const Home = () => {
   // navigate used to redirect users without causing a refresh
   const navigate = useNavigate();
 
+
     async function getTickets() {
         console.log('Getting tickets');
         const response = await fetch('/api/ticket/', {
@@ -92,7 +93,7 @@ export const Home = () => {
                 </div>
                 <div className='hours'>
                   <h3>Hours Worked This Week</h3>
-                  <h1>20hrs</h1> {/*placeholder*/}
+                  <h1>{ user.hoursworked }hrs</h1>
                 </div>
                 <div className='announce'>
                   <h3>Company Accouncements</h3>

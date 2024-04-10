@@ -162,12 +162,14 @@ const Admin = () => {
             <div className="issue-section">
                 {/* simple search for all, solved or unsolved */}
                 <div className="issue-search">
+                    <div>
                     <input type="text" placeholder="Search Issues" />
                     <select name="" id="">
                         <option value=""> All </option>
                         <option value=""> Solved </option>
                         <option value=""> Unsolved </option>
                     </select>
+                    </div>
                     <button>Search</button>
                 </div>
 
@@ -181,7 +183,7 @@ const Admin = () => {
                                 <div className="issue-info">
                                     <p> submitted by {issue.firstname} {issue.lastname} </p>
                                     {/* needs date formating  */}
-                                    <p> {new Date(issue.date).toLocaleDateString()} </p>
+                                    <p>on {new Date(issue.date).toLocaleDateString()} </p>
                                 </div>
                             </div>
                             <button className="solved-btn" onClick={ () => { markSolved(issue) }}>Mark as Solved</button>
