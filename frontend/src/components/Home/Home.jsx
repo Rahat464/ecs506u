@@ -11,7 +11,7 @@ export const Home = () => {
   const { user, updateUser } = useContext(UserContext);
   const [ticket, updateTicket] = useState(null);
 
-  const [hours, setHours] = useState(0);
+  const [hours, setHours] = useState(user && user.hoursworked ? user.hoursworked : 0);
   const [issues, setIssues] = useState([]);
 
   // navigate used to redirect users without causing a refresh
@@ -66,7 +66,7 @@ export const Home = () => {
       navigate('/Loginform');
     }
     getTickets().catch(console.error);
-    getIssues()
+    getIssues();
 
   }, [navigate]);
 
@@ -191,7 +191,7 @@ export const Home = () => {
                   </div>
                   <div className='hours'>
                     <h3>Hours Worked This Week</h3>
-                      <h1>{(user) ? (user.hoursworked + " hrs") : "Hours not logged."}</h1>
+                      <h1>{(user) ? (hours + " hrs") : "Hours not logged."}</h1>
                       <form onSubmit={ (e) => {logHours(e)}}>
                         <h3> Log Hours </h3>
                         <label className='hours-label' htmlFor="hours"> Hours: </label>
