@@ -93,10 +93,10 @@ export const Home = () => {
                 </div>
                 <div className='hours'>
                   <h3>Hours Worked This Week</h3>
-                  <h1>{ user.hoursworked }hrs</h1>
+                    <h1>{(user && user.hoursworked) ? (user.hoursworked + " hrs") : "Unknown"}</h1>
                 </div>
                 <div className='announce'>
-                  <h3>Company Accouncements</h3>
+                <h3>Company Accouncements</h3>
                   <p>Company meeting on 11/04</p> {/*placeholder*/}
                 </div>
                 <div className="ticket">
