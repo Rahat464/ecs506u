@@ -77,11 +77,15 @@
     cursor: default;
 }
 
-.Header .dropdown-2elements {
+.Header .dropdown-2elements, .Header .dropdown-3elements{
     display: flex;
     position: relative;
     text-align: center;
     top: 20px;
+}
+
+.Header .dropdown-3elements {
+    height: 160px
 }
 
 .Header #cap {
@@ -90,7 +94,7 @@
     right: 5px;
 }
 
-.Header .dropdown-2elements {
+.Header .dropdown-2elements, .Header .dropdown-3elements{
     display: none;
     position: absolute;
     background-color: black;
@@ -179,11 +183,11 @@
     right: 19px;
 }
 
-.Header .dropdown-2elements li, .Header .dropdown-account li, .Header .dropdown-documents li {
+.Header .dropdown-2elements li, .Header .dropdown-3elements li, .Header .dropdown-account li, .Header .dropdown-documents li {
     padding: 12px 16px;
 }
 
-.Header .dropdown:hover .dropdown-2elements, .Header .dropdown:hover .dropdown-account, .Header .dropdown:hover .dropdown-documents {
+.Header .dropdown:hover .dropdown-2elements, .Header .dropdown:hover .dropdown-3elements, .Header .dropdown:hover .dropdown-account, .Header .dropdown:hover .dropdown-documents {
     display: block;
 }
 

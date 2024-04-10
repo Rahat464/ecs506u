@@ -51,7 +51,6 @@ export const Header = () => {
                 ) : null}
               </ul>
             </li>
-            <li><Link to='/Contact' className='link'> FAQs </Link></li>
             <li className='dropdown'>
               Documents
               <ul className='dropdown-documents'>
@@ -59,15 +58,27 @@ export const Header = () => {
                 <li><Link to='/FileUploadForm' className='link' id='doc2'>Upload Document</Link></li>
               </ul>
             </li>
-            <li><Link to='/Programs' className='link'>Programs</Link></li>
-            <li><Link to='/Training' className='link'>Training</Link></li>
+            <li className ='dropdown'>
+                Enrol
+                <ul className='dropdown-2elements'>
+                  <li><Link to='/Programs' className='link'>Programs</Link></li>
+                  <li><Link to='/Training' className='link'>Training</Link></li>
+                </ul>
+            </li>
             {user.account_type === 'admin' ? (
-              <li><Link to='/Admin' className='link'>Admin Dashboard</Link></li>
+              <li className ='dropdown'>
+                Admin
+                <ul className='dropdown-2elements'>
+                  <li><Link to='/Admin' className='link' id='aa'>Dashboard</Link></li>
+                  <li><Link to='/SelectEmployee' className='link' id='aa'>Edit employee</Link></li>
+                </ul>
+              </li>
             ) : null}
             {user.account_type === 'hr' ? (
               <li className='dropdown'>
                 HR
-                <ul className='dropdown-2elements'>
+                <ul className='dropdown-3elements'>
+                 <li><Link to='/HRDashboard' className='link' id='aa'>Dashboard</Link></li> 
                   {/* select --> send payslip */}
                   <li><Link to='/SelectEmployeePayslip' className='link' id='aa'>Send payslip</Link></li> 
                   {/* select --> edit account */}
@@ -84,6 +95,7 @@ export const Header = () => {
                 <li><Link to='/Issue' className='link' id='d'>Issue</Link></li>
               </ul>
             </li>
+            <li><Link to='/Contact' className='link'> FAQs </Link></li>
             <li><button onClick={handleLogout}>Logout</button></li>
             <li>
               <form onSubmit={handleSubmit} className='search-bar'>

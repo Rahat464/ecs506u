@@ -28,6 +28,7 @@ import SelectEmployeePayslip from './components/HR/SelectEmployeePayslip.jsx'
 import SendPayslip from './components/HR/SendPayslip.jsx'
 import EditEmployee from './components/HR/EditEmployee.jsx'
 import Training from './components/Training/Training.jsx'
+import HRDashboard from './components/HR/HRDashboard.jsx'
 
 const router = createBrowserRouter([
   {
@@ -122,6 +123,10 @@ const router = createBrowserRouter([
   {
     path: '/EditEmployee',
     element: <EditEmployee />,
+  },
+  {
+    path: '/HRDashboard',
+    element: <HRDashboard />,
   }
 ]);
 

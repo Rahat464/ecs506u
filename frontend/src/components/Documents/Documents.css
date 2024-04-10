@@ -13,7 +13,7 @@
     width: 100%; /* Smaller width */
     height: 5vw; /* Reduced height */
     margin-bottom: 20px; /* Added space between sections */
-    margin-top: 40px;
+    margin-top: 60px;
     display: flex; 
     align-items: center; /* Center vertically */
     position: relative; /* Add position relative */
@@ -28,6 +28,7 @@
     font-weight: 800;
     line-height: normal;
     padding-left: 20px;
+    margin: 0;
 }
 
 .info {

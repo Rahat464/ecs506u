@@ -11,10 +11,14 @@ export const SendPayslip = () => {
     const [file, setFile] = useState(null);
     const employee = location.state?.employee;
 
-    // Ensure user is logged in
-    if (!user) {
-        navigate('/Loginform');
-    }
+    // restricts to hr and admin only
+    useEffect(() => {
+        if(!user) {
+            navigate('/Loginform');
+        } else if (user.account_type !== 'hr' && user.account_type !== 'admin') {
+            navigate('/Home');
+        }
+    })
 
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);

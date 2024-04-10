@@ -30,6 +30,15 @@ export const EditEmployee = () => {
   const [email, setEmail] = useState(employee ? employee.email : "");
   const [password, setPassword] = useState("");
 
+  // restricts to hr and admin only
+  useEffect(() => {
+    if(!user) {
+        navigate('/Loginform');
+    } else if (user.account_type !== 'hr' && user.account_type !== 'admin') {
+        navigate('/Home');
+    }
+  })
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
