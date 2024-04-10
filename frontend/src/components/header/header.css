@@ -27,6 +27,10 @@
 .Header li {
     list-style: none;
     padding-right: 40px;
+    text-align: center;
+    display: flex;
+    position: relative;
+    left: 20px;
 }
 
 .Header form {
@@ -74,6 +78,19 @@
 }
 
 .Header .dropdown-2elements {
+    display: flex;
+    position: relative;
+    text-align: center;
+    top: 20px;
+}
+
+.Header #cap {
+    display: flex;
+    position: relative;
+    right: 5px;
+}
+
+.Header .dropdown-2elements {
     display: none;
     position: absolute;
     background-color: black;
@@ -85,6 +102,19 @@
     min-height: 115px;
     border-radius: 10px;
 }
+
+.Header #aa {
+    display: flex;
+    position: relative;
+    right: 4px;
+}
+
+.Header #bb {
+    display: flex;
+    position: relative;
+    right: 8px;
+}
+
 .Header .dropdown-account {
     display: none;
     position: absolute;
@@ -94,8 +124,33 @@
     z-index: 1;
     margin-left: -50px;
     padding-top: 20px;
-    min-height: 210px;
+    min-height: 224px;
     border-radius: 10px;
+    top: 20px;
+}
+
+.Header .dropdown-account #a {
+    display: flex;
+    position: relative;
+    right: 9px;
+}
+
+.Header .dropdown-account #b {
+    display: flex;
+    position: relative;
+    right: 18px;
+}
+
+.Header .dropdown-account #c {
+    display: flex;
+    position: relative;
+    left: 15px;
+}
+
+.Header .dropdown-account #d {
+    display: flex;
+    position: relative;
+    left: 25px;
 }
 
 .Header .dropdown-documents {
@@ -107,8 +162,21 @@
     z-index: 1;
     margin-left: -50px;
     padding-top: 20px;
-    min-height: 201px;
+    min-height: 115px;
     border-radius: 10px;
+    top: 20px;
+}
+
+.Header #doc {
+    display: flex;
+    position: relative;
+    right: 17px;
+}
+
+.Header #doc2 {
+    display: flex;
+    position: relative;
+    right: 19px;
 }
 
 .Header .dropdown-2elements li, .Header .dropdown-account li, .Header .dropdown-documents li {
@@ -132,4 +200,13 @@
     background-color: #2F3C7E;
     color: white;
     cursor: pointer;
+}
+
+.Header .search-bar button {
+    height: 31px;
+    background-color: white;
+}
+
+.Header .search-bar button:hover img {
+    filter: invert();
 }

@@ -42,12 +42,12 @@ export const Header = () => {
         {user ? (
           <ul>
             <li><Link to='/Home' className='link'>Home</Link></li>
-            <li className='dropdown'>
+            <li className='dropdown' id='forum'>
               Forum
               <ul className='dropdown-2elements'>
                 <li><Link to='/Forum' className='link'>View Posts</Link></li>
                 {user.canpost ? (
-                  <li><Link to='/CreatePost' className='link'>Create a Post</Link></li>
+                  <li><Link to='/CreatePost' className='link' id='cap'>Create a Post</Link></li>
                 ) : null}
               </ul>
             </li>
@@ -55,8 +55,8 @@ export const Header = () => {
             <li className='dropdown'>
               Documents
               <ul className='dropdown-documents'>
-                <li><Link to='/Documents' className='link'>View Documents</Link></li>
-                <li><Link to='/FileUploadForm' className='link'>Upload Document</Link></li>
+                <li><Link to='/Documents' className='link' id='doc'>View Documents</Link></li>
+                <li><Link to='/FileUploadForm' className='link' id='doc2'>Upload Document</Link></li>
               </ul>
             </li>
             <li><Link to='/Programs' className='link'>Programs</Link></li>
@@ -69,19 +69,19 @@ export const Header = () => {
                 HR
                 <ul className='dropdown-2elements'>
                   {/* select --> send payslip */}
-                  <li><Link to='/SelectEmployeePayslip' className='link'>Send payslip</Link></li> 
+                  <li><Link to='/SelectEmployeePayslip' className='link' id='aa'>Send payslip</Link></li> 
                   {/* select --> edit account */}
-                  <li><Link to='/SelectEmployee' className='link'>Edit employee account</Link></li>
+                  <li><Link to='/SelectEmployee' className='link' id='bb'>Edit employee</Link></li>
                 </ul>
               </li>
             ) : null}
             <li className='dropdown'>
               Account
               <ul className='dropdown-account'>
-                <li><Link to='/Account' className='link'>View Account</Link></li>
-                <li><Link to='/EditAccount' className='link'>Edit Account Info</Link></li>
-                <li><Link to='/LeaveRequest' className='link'>Request</Link></li>
-                <li><Link to='/Issue' className='link'>Issue</Link></li>
+                <li><Link to='/Account' className='link' id='a'>View Account</Link></li>
+                <li><Link to='/EditAccount' className='link' id='b'>Edit Account Info</Link></li>
+                <li><Link to='/LeaveRequest' className='link' id='c'>Request</Link></li>
+                <li><Link to='/Issue' className='link' id='d'>Issue</Link></li>
               </ul>
             </li>
             <li><button onClick={handleLogout}>Logout</button></li>
