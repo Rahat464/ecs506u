@@ -188,10 +188,13 @@
     font-size: 16px;
     color: white;
     font-weight: 700;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
   }
 
+  .SignUp .signupButton {
+    width: 390px;
+  }
   .SignUp .login-link a{
     text-decoration: none;
   }

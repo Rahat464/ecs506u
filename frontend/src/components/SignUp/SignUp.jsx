@@ -125,7 +125,7 @@ export const SignUp = () => {
             <FaLock className='icon' />
         </div>
 
-        <button onClick={handleSubmit} type ="submit">Sign Up</button>
+        <button onClick={handleSubmit} type ="submit" className='signupButton'>Sign Up</button>
 
         <div className="have-account">
             <Link to='/LoginForm'>Already have an account?</Link>

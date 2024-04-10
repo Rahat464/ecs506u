@@ -149,7 +149,7 @@ export const LoginForm = () => {
             <FaLock className='icon'/>
           </div>
 
-          <button type="submit">Login</button>
+          <button type="submit" className='loginButton'>Login</button>
 
           <div className="forgot-password">
             <a href="#"> Forgot password?</a>

@@ -26,9 +26,9 @@
     padding: 10px;
     display: grid;
     grid-template-areas:
-    "nav hours"
     "nav announce"
-    "nav ticket";
+    "nav ticket"
+    "nav hours";
     grid-template-columns: 1fr 2fr;
     gap: 10px;
 }
