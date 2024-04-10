@@ -114,3 +114,23 @@
 .upload-form button:hover {
     background-color: #2e317a;
 }
+
+/*Table*/
+
+.class-documents .info table {
+    width: 100%;
+    border-collapse: collapse;
+    /*border: 1px solid #4548A0;*/
+    align-content: center;
+    margin: 1% 1% 1% 33%;
+}
+
+.class-documents .info th, .info td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #4548A0;
+}
+
+.class-documents .info a {
+    text-decoration: none;
+}

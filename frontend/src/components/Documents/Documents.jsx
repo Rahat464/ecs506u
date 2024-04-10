@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, {useState, useEffect} from 'react';
 import Header from '../header/header';
 import './Documents.css';
 import { Link } from 'react-router-dom';
@@ -14,8 +13,19 @@ const Document = () => {
 
   const fetchDocuments = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/document/getList');
-      setDocuments(response.data);
+      const response = await fetch('/api/document/getList', {
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+      });
+      let data = await response.json();
+      // Remove any null values from the list
+      data = data.filter((document) => document !== null);
+
+      setDocuments(data);
+
     } catch (error) {
       console.error('Error fetching documents:', error);
     }
@@ -30,50 +40,48 @@ const Document = () => {
     setSelectedFile(event.target.files[0]);
   };
 
-  const handleUpload = async () => {
-    if (!selectedFile) return;
-
-    const formData = new FormData();
-    formData.append('file', selectedFile);
-
-    try {
-      await axios.post('http://localhost:4000/api/document/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-
-      fetchDocuments();
-
-      setSelectedFile(null);
-    } catch (error) {
-      console.error('Error uploading document:', error);
-    }
-  };
-
   return (
     <>
       <Header />
-      <div className='wrapper'>
+      <div className='wrapper class-documents'>
         <div className='Documents-header'>
           <h1>Your Documents</h1>
         </div>
         <div className='info'>
-          {documents.map((document, index) => (
-            <div key={index} className="document-item">
-              <div className="left">
-                <p>{document.name} ({document.type})</p>
-              </div>
-              <div className="middle">
-                <p>{formatDate(document.date)}</p>
-              </div>
-              <div className="right">
-                <a href={document.url} download>
-                  <button>Download</button>
-                </a>
-              </div>
-            </div>
-          ))}
+          <table>
+            <thead>
+            <tr className="document-item">
+              <th className="left">Title</th>
+              <th className="middle">Upload Date</th>
+              <th className="right">Download</th>
+            </tr>
+            </thead>
+            <tbody>
+            {documents && Array.isArray(documents) && documents.length > 0 ?
+                (documents.map((document, index) => (
+                        <tr key={index} className="document-item">
+                          <td className="left">
+                            {document && document.title ? (document.title).split("_")[0] + " " : 'Untitled'}
+                            ({document && document.type ? document.type : 'Unknown'})
+                          </td>
+                          <td className="middle">
+                            {document && document.uploaddate ? formatDate(document.uploaddate) : 'Unknown'}
+                          </td>
+                          <td className="right">
+                            <a href={document && document.url ? document.url : "#"} download>
+                              Download
+                            </a>
+                          </td>
+                        </tr>
+                    ))
+                ) : (
+                    <tr>
+                      <td colSpan={3}>No documents uploaded.</td>
+                    </tr>
+                )
+            }
+            </tbody>
+          </table>
         </div>
       </div>
       <div className='edit-button'>
@@ -83,7 +91,7 @@ const Document = () => {
       </div>
     </>
   );
-  
+
 
 };
 

@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Header from '../header/header';
 import './FileUploadForm.css'; // Import the CSS file for styling
 
@@ -30,7 +29,7 @@ const FileUploadForm = () => {
     formData.append('type', type);
 
     try {
-      await axios.post('/api/upload', formData, {
+      await axios.post('/api/document/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -57,14 +56,13 @@ const FileUploadForm = () => {
         <div className='info'>
           <div>
             <label>Select File:</label>
-            <input type="file" onChange={handleFileChange} />
+            <input type="file" accept=".png, .jpeg, .pdf, .docx, .doc" onChange={handleFileChange} />
           </div>
           <div>
             <label>Select Type:</label>
             <select value={type} onChange={handleTypeChange}>
             <option value="">Select Type</option>
             <option value="progress_report">Progress Report</option>
-            <option value="payslip">Pay Slip</option>
             <option value="other">Other</option>
           </select>
           </div>
