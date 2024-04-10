@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../header/header';
 import './Contact.css'; 
 
@@ -64,6 +65,10 @@ const Contact = () => {
             ))}
           </div>
           
+          <div className='additional-support'>
+            <h3> For other Issues submit a support request to Admin </h3>
+            <Link to='/Issue'> Submit an Issue </Link>
+          </div>
         </div>
       </div>
     </>

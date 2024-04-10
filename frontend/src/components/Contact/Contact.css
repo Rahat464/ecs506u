@@ -25,8 +25,9 @@
   width: 91vw; /* Adjust the width of the contact info container */
   background-color: #A3ABD0;
   border-radius: 15px;
-  height: 40vw;
+  height: fit-content;
   display: flex;
+  flex-direction: column;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
 }
@@ -82,4 +83,27 @@
   line-height: normal;
   padding-left: 20px;
   margin: 0;
+}
+
+
+.additional-support {
+  margin: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.additional-support a {
+  text-decoration: none;
+  color: #4548A0;
+  font-size: 20px;
+  padding: 15px;
+}
+
+.additional-support a:hover {
+  color: #2F3C7E;
+  background-color: #2F3C7E;
+  border-radius: 10px;
+  color: white;
 }

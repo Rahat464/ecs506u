@@ -37,7 +37,12 @@ router.post('/enrol', async (req, res) => {
     const result = await db.query(query, values);
 
     if (result) {
-        res.status(200).json({message: 'User enrolled in program.'});
+        res.status(200).json(
+            {
+                message: 'User enrolled in program.',
+                programs: {result}
+            }
+        );
     } else {
         res.status(400).json({message: 'Error enrolling user in program.'});
     }

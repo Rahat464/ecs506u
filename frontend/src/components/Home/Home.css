@@ -101,3 +101,22 @@
     text-align: center;
     gap: 5px;
 }
+
+.Home .hours-label {
+    color: black;
+}
+
+.Home .log-btn {
+    height: 40px;
+    width: 150px;
+}
+
+.Home form {
+    background-color: #A3ABD0;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.Home .issue-status {
+    margin: 35px;
+}

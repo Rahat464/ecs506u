@@ -87,7 +87,7 @@ export const Programs = () => {
   }, [user])
 
 
-  const enrol = async (programId) => {
+  const enrol = async (program) => {
     fetch('/api/programs/enrol', {
       method: 'POST',
       credentials: 'include',
@@ -96,7 +96,7 @@ export const Programs = () => {
       },
       body: JSON.stringify({
         userId: user.id,
-        programId: programId
+        programId: program.id
       })
     }).then( response => {
       if (response.status === 401) {
@@ -105,14 +105,9 @@ export const Programs = () => {
       }
 
       if(response.ok) {
+        setPersonalPrograms([...personalPrograms, program]);
         return response.json()
       }
-    }).then(data => {
-      if (data) {
-        console.log(data)
-        setPersonalPrograms([...personalPrograms, data]);
-      }
-      return;
     }).catch(err => {
       console.error('Error Enrolling in program', err)
     });
@@ -136,14 +131,9 @@ export const Programs = () => {
       }
 
       if(response.ok) {
+        setPersonalPrograms(personalPrograms.filter(program => program.id !== programId));
         return response.json()
       }
-    }).then(data => {
-      if (data) {
-        console.log(data)
-        setPersonalPrograms([...personalPrograms, data]);
-      }
-      return;
     }).catch(err => {
       console.error('Error Unenrolling in program', err)
     });
@@ -163,8 +153,8 @@ export const Programs = () => {
                   <h2 className='title'>{program.name}</h2>
                   <p className=''>{program.description}</p>
                   <div className='btn-group'>
-                    <Link to={`/${program.link}`}>View Program</Link>
-                    <button className='btn' onClick={() => enrol(program.id)}> Enrol </button>
+                    {/* <Link to={`/${program.link}`}>View Program</Link> */}
+                    <button className='btn' onClick={() => enrol(program)}> Enrol </button>
                   </div>
                 </div>
               ))}
@@ -172,7 +162,7 @@ export const Programs = () => {
             }
           </div>
           <div className='yourprograms'>
-              <h1 className='bigtitle'>Your Programs</h1>
+              <h1 className='bigtitle'>Your Progams</h1>
               { personalPrograms && 
               <div>
                   {personalPrograms.map(program => (
@@ -180,7 +170,7 @@ export const Programs = () => {
                           <h2 className='title'>{program.name}</h2>
                           {/* <p className=''>{program.description}</p> */}
                           <div className='btn-group'>
-                            <Link to={`/${program.link}`}>View Program</Link>
+                            {/* <Link to={`/${program.link}`}>View Program</Link> */}
                             <button className='btn' onClick={() => unenrol(program.id)}> Unenrol </button>
                           </div>
                       </div>
