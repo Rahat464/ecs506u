@@ -8,9 +8,6 @@
     font-family: "Roboto Slab";
 }
 .Home .title {
-    display: flex;
-    position: relative;
-    right: 10px;
     color: #2F3C7E;
     font-size: large;
     background-color: #FFF4F5;
@@ -19,6 +16,11 @@
     padding-bottom: 0;
     margin-top: 3em;
     margin-bottom: 0.5em;
+    margin-left: 0;
+    width: 100%;
+}
+.Home .title h1 {
+    margin-bottom: 10px;
 }
 .Home .dashboard {
     background-color: #A3ABD0;
@@ -31,7 +33,6 @@
     "nav ticket"
     "nav issues";
     grid-template-columns: 1fr 2fr;
-    gap: 25px;
 }
 
 .Home .dashboard * {

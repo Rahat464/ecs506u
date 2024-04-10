@@ -128,7 +128,7 @@ export const Home = () => {
                         <li className='dropdown'>
                           <p className='main'>HR</p>
                           <ul className='y'>
-                            <li><Link to='/SendPayslip' className='link'>Send payslip</Link></li>
+                            <li><Link to='/SelectEmployeePayslip' className='link'>Send payslip</Link></li>
                             <li><Link to='/SelectEmployee' className='link'>Edit employee account</Link></li>
                           </ul>
                         </li>

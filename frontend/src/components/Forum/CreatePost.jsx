@@ -3,6 +3,7 @@ import styles from './CreatePost.module.css'; // Import CSS module
 import Header from '../header/header';
 import axios from 'axios'; // Import axios
 import { UserContext } from '../../context/userContext';
+import { useNavigate } from 'react-router-dom';
 
 const backendURL = "http://localhost:4000"; // Backend URL
 
@@ -10,6 +11,7 @@ const BlogPost = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const { user } = useContext(UserContext); // Assuming user object has an employeeId
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,6 +27,7 @@ const BlogPost = () => {
       const response = await axios.post(`${backendURL}/api/posts/newblog`, postData);
   
       console.log('Blog post created:', response);
+      navigate(`../Forum`);
   
       // Check if response has data property
       if (response && response.data) {
