@@ -24,6 +24,7 @@ import SearchResults from './components/SearchResults/SearchResults.jsx'
 import LeaveRequest from './components/LeaveRequest/LeaveRequest.jsx'
 import Issue from './components/Issue/Issue.jsx'
 import SelectEmployee from './components/HR/SelectEmployee.jsx'
+import SelectEmployeePayslip from './components/HR/SelectEmployeePayslip.jsx'
 import SendPayslip from './components/HR/SendPayslip.jsx'
 import EditEmployee from './components/HR/EditEmployee.jsx'
 import Training from './components/Training/Training.jsx'
@@ -109,6 +110,10 @@ const router = createBrowserRouter([
   {
     path: '/SelectEmployee',
     element: <SelectEmployee />,
+  },
+  {
+  path: '/SelectEmployeePayslip',
+  element: <SelectEmployeePayslip />,
   },
   {
     path: '/SendPayslip',

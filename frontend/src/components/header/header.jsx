@@ -69,7 +69,7 @@ export const Header = () => {
                 HR
                 <ul className='dropdown-2elements'>
                   {/* select --> send payslip */}
-                  <li><Link to='/SendPayslip' className='link' id='aa'>Send payslip</Link></li> 
+                  <li><Link to='/SelectEmployeePayslip' className='link' id='aa'>Send payslip</Link></li> 
                   {/* select --> edit account */}
                   <li><Link to='/SelectEmployee' className='link' id='bb'>Edit employee</Link></li>
                 </ul>
