@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import Header from '../header/header';
 import './Documents.css';
-import { Link } from 'react-router-dom';
 
 const Document = () => {
   const [documents, setDocuments] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     fetchDocuments();
@@ -36,10 +34,6 @@ const Document = () => {
     return date.toLocaleDateString();
   };
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
   return (
     <>
       <Header />
@@ -49,13 +43,15 @@ const Document = () => {
         </div>
         <div className='info'>
           <table>
-            <thead>
-            <tr className="document-item">
-              <th className="left">Title</th>
-              <th className="middle">Upload Date</th>
-              <th className="right">Download</th>
-            </tr>
-            </thead>
+            {documents && Array.isArray(documents) && documents.length > 0 && (
+                <thead>
+                <tr className="document-item">
+                  <th className="left">Title</th>
+                  <th className="middle">Upload Date</th>
+                  <th className="right">Download</th>
+                </tr>
+                </thead>
+            )}
             <tbody>
             {documents && Array.isArray(documents) && documents.length > 0 ?
                 (documents.map((document, index) => (
@@ -75,19 +71,12 @@ const Document = () => {
                         </tr>
                     ))
                 ) : (
-                    <tr>
-                      <td colSpan={3}>No documents uploaded.</td>
-                    </tr>
+                    <p id="no-documents">No documents uploaded.</p>
                 )
             }
             </tbody>
           </table>
         </div>
-      </div>
-      <div className='edit-button'>
-        <Link to='/FileUploadForm'>
-          <button className='button'>Upload Documents</button>
-        </Link>
       </div>
     </>
   );
