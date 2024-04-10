@@ -50,7 +50,7 @@ const Contact = () => {
 
       <div className='container'>
          <div className='Contact-header'>
-          <h1>Contact</h1>
+          <h1> FAQs </h1>
         </div>
 
         <div className='contact-info'>

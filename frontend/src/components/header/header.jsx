@@ -51,7 +51,7 @@ export const Header = () => {
                 ) : null}
               </ul>
             </li>
-            <li><Link to='/Contact' className='link'>Contact</Link></li>
+            <li><Link to='/Contact' className='link'> FAQs </Link></li>
             <li className='dropdown'>
               Documents
               <ul className='dropdown-documents'>
