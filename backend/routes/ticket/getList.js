@@ -9,8 +9,15 @@ router.get('/', async (req, res) => {
     // Check that the user is logged in as an HR employee
     if (!req.user || req.user.role !== "hr") return res.status(401).json({message: 'Unauthorized. Please log in as an HR employee.'});
 
-    // Get all unresolved tickets
-    const query = 'SELECT * FROM ticket WHERE status = $1;';
+    // Get all unresolved tickets and get the submittedBy's full name from the employee table
+    // If the ticket is a leave request, set the request_type to 'leave-request', otherwise set it to 'general-ticket'
+    const query = `SELECT t.*, e.firstname || ' ' || e.lastname AS submittedBy, 
+        CASE WHEN lr.id IS NOT NULL THEN 'leave-request' ELSE 'general-ticket' END AS ticket_type 
+        FROM ticket t
+        LEFT JOIN employees e ON t.submittedBy = e.id
+        LEFT JOIN leaverequest lr ON t.id = lr.id
+        WHERE status = $1
+    `;
     const tickets = await db.query(query, [false]);
 
     // If the query is successful, return the tickets
