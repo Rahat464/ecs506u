@@ -12,10 +12,10 @@
 8. Press o + enter
 
 ## Troubleshooting
-If after step 4. you're not able to type into the terminal:
-5. Open a new terminal window and navigate to frontend folder: enter ```cd frontend``` into the new terminal
+If after step 4. you're not able to type into the terminal:<br>
+5. Open a new terminal window and navigate to frontend folder: enter ```cd frontend``` into the new terminal<br>
 continue from step 6.
 
-To manually open the localhost in your browser, search this url: http://localhost:5173/
+To manually open the localhost in your browser, search this url: http://localhost:5173/ <br>
 
 To see all the shortcuts: press h + enter
