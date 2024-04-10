@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './SendPayslip.css';
 import Header from '../header/header';
 import { UserContext } from '../../context/userContext';

@@ -57,6 +57,7 @@ export const SelectEmployee = () => {
     <>
       <Header />
       <div className='SearchResults'>
+      <h1 className='title'>Edit employee's account information</h1>
         <form onSubmit={handleSubmit} className='search-bar'>
           <input
             type='text'
