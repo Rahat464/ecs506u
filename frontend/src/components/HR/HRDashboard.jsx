@@ -47,7 +47,7 @@ const HRDashboard = () => {
 
             // Update the list of leave requests to reflect the change
             setTicket(prevRequests =>
-                prevRequests.map(req => req.id === requestId ? { ...req, status } : req)
+                prevRequests.filter(req => req.id !== requestId)
             );
 
         } catch (error) {
