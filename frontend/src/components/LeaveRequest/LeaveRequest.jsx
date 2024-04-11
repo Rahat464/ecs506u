@@ -45,7 +45,7 @@ const LeaveRequest = () => {
             if (response.ok) {
               console.log(response)
               console.log('Ticket sent successfully');
-              navigate('/Account');
+              navigate('/Home');
             } else {
               throw new Error('Failed to send ticket');
             }
