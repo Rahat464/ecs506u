@@ -153,7 +153,7 @@ export const Training = () => {
                   <h2 className='title'>{program.name}</h2>
                   <p className=''>{program.description}</p>
                   <div className='btn-group'>
-                    <Link to={`/${program.link}`}>View Training </Link>
+                    {/* <Link to={`/${program.link}`}>View Training </Link> */}
                     <button className='btn' onClick={() => enrol(program)}> Enrol </button>
                   </div>
                 </div>
@@ -170,7 +170,7 @@ export const Training = () => {
                           <h2 className='title'>{program.name}</h2>
                           {/* <p className=''>{program.description}</p> */}
                           <div className='btn-group'>
-                            <Link to={`/${program.link}`}>View Program</Link>
+                            {/* <Link to={`/${program.link}`}>View Program</Link> */}
                             <button className='btn' onClick={() => unenrol(program.id)}> Unenrol </button>
                           </div>
                       </div>
