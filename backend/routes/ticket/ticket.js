@@ -33,8 +33,8 @@ router.post('/', async (req, res) => {
     if (!title || !description) return res.status(400).json({message: 'Please fill in all fields.'});
 
     // Create a new ticket
-    const ticketQuery = 'INSERT INTO ticket (title, description, date, submittedby, status, managedby) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;';
-    const newTicket = await db.query(ticketQuery, [title, description, new Date(), submittedBy, false, null]);
+    const ticketQuery = 'INSERT INTO ticket (title, description, date, submittedby, status) VALUES ($1, $2, $3, $4, $5) RETURNING *;';
+    const newTicket = await db.query(ticketQuery, [title, description, new Date(), submittedBy, false]);
 
     // If the type is leave request, create a new leave request
     // TODO: Use can select the type of ticket from a dropdown menu/checkbox
