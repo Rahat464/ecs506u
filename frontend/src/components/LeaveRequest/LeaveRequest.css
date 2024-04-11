@@ -39,7 +39,6 @@
     flex-direction: row;
     justify-content: space-between;
     width: 95vw;
-    
 }
 .personal-info {
     display: flex;
@@ -48,7 +47,7 @@
     padding: 10px;
     border-radius: 15px;
     width: 95vw;
-    height: 40vw;
+    height: auto;
 }
 .RequestInputTitle {
     width: 90vw;
