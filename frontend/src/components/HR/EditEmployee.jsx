@@ -79,7 +79,7 @@ export const EditEmployee = () => {
       
       <div className='employee-container'> 
         <div className='Account-header'>
-          <h1>Update { user.firstname }'s Personal information</h1>   
+          <h1>Update { firstname } { lastname }'s personal information</h1>   
         </div>
         
         <div className='info'>
@@ -124,7 +124,7 @@ export const EditEmployee = () => {
                 required
               />
             </div>
-            <div className='input-box-employee' id='password'>
+            <div className='input-box'>
               <h1 className='title'>Password</h1>
               <input
                 type="password"

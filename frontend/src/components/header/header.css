@@ -208,7 +208,7 @@
 
 .Header .search-bar button {
     height: 31px;
-    background-color: white;
+    background-color: #efefef;
 }
 
 .Header .search-bar button:hover img {

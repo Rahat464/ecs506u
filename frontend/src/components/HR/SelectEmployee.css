@@ -109,3 +109,7 @@
     background-color: #2F3C7E;
     color: #ffff;
 }
+
+.SearchResults .search-bar button:hover img {
+    filter: invert();
+}
