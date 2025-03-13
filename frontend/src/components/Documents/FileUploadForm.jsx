@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Header from '../header/header';
 import './FileUploadForm.css'; // Import the CSS file for styling
+const isDocumentFeatureEnabled = false;
 
 const FileUploadForm = () => {
   const [file, setFile] = useState(null);
@@ -16,9 +17,16 @@ const FileUploadForm = () => {
     setType(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleFileUpload = async (event) => {
     event.preventDefault();
 
+    if (isDocumentFeatureEnabled) await handleSubmit(event);
+    else {
+      alert('File uploads are currently disabled due to Firebase pricing.');
+    }
+  }
+
+  const handleSubmit = async (event) => {
     if (!file || !type) {
       setErrorMessage('Please select a file and specify its type.');
       return;
@@ -52,7 +60,7 @@ const FileUploadForm = () => {
           <h1>Upload Document</h1>
         </div>
         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleFileUpload}>
         <div className='info'>
           <div>
             <label>Select File:</label>

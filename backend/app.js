@@ -75,8 +75,10 @@ app.use('/api/ticket/updateLeaveRequest', require('./routes/ticket/updateLeaveRe
 app.use('/api/search', require('./routes/search/searchEmployee'));
 
 // Document
-app.use('/api/document/upload', require('./routes/document/uploadDocument'));
-app.use('/api/document/getList', require('./routes/document/getList'));
+if (ENV.DOCUMENTS_ENABLED === 'true') {
+    app.use('/api/document/upload', require('./routes/document/uploadDocument'));
+    app.use('/api/document/getList', require('./routes/document/getList'));
+}
 
 // Network
 app.use('/api/network/join/', require('./routes/network/join'));
